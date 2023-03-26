@@ -1,265 +1,310 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Carme&family=Nixie+One&display=swap" rel="stylesheet">
-    <style>
-        section {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Carme&family=Nixie+One&display=swap" rel="stylesheet">
+        <style>
+            section {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+            }
+            .header1 {
+                font-size: 50px;
+                font-weight: bold;
+                text-align: center;
+                font-family: "Carme", sans-serif;
+            }
+            .header2 {
+                font-size: 40px;
+                font-weight: bold;
+                text-align: center;
+                font-family: "Carme", sans-serif;}
+            .header3 {
+                font-size: 30px;
+                font-weight: bold;
+                text-align: center;
+                font-family: "Carme", sans-serif;
+            }
+            .paragraph {
+                font-size: 20px;
+                text-align: center;
+                font-family: "Nibxie One", sans-serif;
+            }
+            .section1 {
+                width: 100%;
+                height: 100%;
+                height: 100vh;
+                background-color: #07393C;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .welcome {
+                width: 100%;
+                height: 90%;
+                background-color: #07393C;
+                color: #ffffff;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .welcome-menu-bar {
+                width: 100%;
+                height: 100%;
+                color: #ffffff;
+                background-color: #07393C;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+            .welcome-learn-more {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .welcome-learn-more-icon {a:a;}
+            .welcome-quiz {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .welcome-quiz-icon {a:a;}
+            .welcome-button {
+                width: 25%;
+                height: 6%;
+                background-color: #07393C;
+                color: #ffffff;
+                border: none;
+                border-radius: 5px;
+                font-size: 20px;
+                font-weight: bold;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .welcome-button:hover {
+                background-color: #ffffff;
+                color: #07393C;
+            }
+            .section2 {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+            }
+            .care {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+                color: #ffffff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .slide-in {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+                color: #ffffff;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin-top: 50px;
+                transform: translateX(-50%);
+                opacity: 0;
+                transition: all 1s;
+            }
+            .slide-in.active {
+                opacity: 1;
+                transform: translateX(0%);
+            }
+            .section3 {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+            }
+            .section4 {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+            }
+            .section5 {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+            }
+            .section6 {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+            }
+            .section7 {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+            }
+            .section8 {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+            }
+            .section9 {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+            }
+            .section10 {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+            }
+            .quiz {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+                color: #ffffff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .quiz {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+                color: #ffffff;
+                display: flex;
+                flex-direction: column; 
+                justify-content: center;
+                align-items: center;
+            }
+            .results {
+                width: 100%;
+                height: 100%;
+                background-color: #07393C;
+                color: #ffffff;
+                display: flex;
+                justify-content: center;
+                align-items: center;  
+            }
+        </style>
+        <script>
+        function scrollToSection(section) {
+            var sectionEl = document.getElementsByClassName("section" + section)[0];
+            sectionEl.scrollIntoView({ behavior: 'smooth' });
         }
-        .header1 {
-            font-size: 50px;
-            font-weight: bold;
-            text-align: center;
-            font-family: "Carme", sans-serif;
-        }
-        .header2 {
-            font-size: 40px;
-            font-weight: bold;
-            text-align: center;
-            font-family: "Carme", sans-serif;}
-        .header3 {
-            font-size: 30px;
-            font-weight: bold;
-            text-align: center;
-            font-family: "Carme", sans-serif;
-        }
-        .paragraph {
-            font-size: 20px;
-            text-align: center;
-            font-family: "Nibxie One", sans-serif;
-        }
-        .section1 {
-            width: 100%;
-            height: 100%;
-            height: 100vh;
-            background-color: #07393C;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .welcome {
-            width: 100%;
-            height: 90%;
-            background-color: #07393C;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .welcome-menu-bar {
-            width: 100%;
-            height: 100%;
-            color: #ffffff;
-            background-color: #07393C;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-        }
-        .welcome-learn-more {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .welcome-learn-more-icon {a:a;}
-        .welcome-quiz {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .welcome-quiz-icon {a:a;}
-        .welcome-button {
-            width: 25%;
-            height: 6%;
-            background-color: #07393C;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            font-size: 20px;
-            font-weight: bold;
-            padding: 10px;
-            margin-top: 10px;
-        }
-        .welcome-button:hover {
-            background-color: #ffffff;
-            color: #07393C;
-        }
-        .section2 {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-        }
-        .care {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .care-row {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-            color: #ffffff;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            margin-top: 50px;
-        }
-        .section3 {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-        }
-        .section4 {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-        }
-        .section5 {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-        }
-        .section6 {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-        }
-        .section7 {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-        }
-        .section8 {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-        }
-        .section9 {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-        }
-        .section10 {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-        }
-        .quiz {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .quiz {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column; 
-            justify-content: center;
-            align-items: center;
-        }
-        .results {
-            width: 100%;
-            height: 100%;
-            background-color: #07393C;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;  
-        }
-    </style>
-    <script>
-      function scrollToSection(section) {
-        var sectionEl = document.getElementsByClassName("section" + section)[0];
-        sectionEl.scrollIntoView({ behavior: 'smooth' });
-      }
-    </script>
-</head>
-<body>
-    
-    <section>
-        <div class="section1">
-            <div class="welcome">
-                <h1 class="header1">Cybersecurity and Data privacy</h1>
-                <div class="welcome-menu-bar">
-                    <div class="welcome-learn-more">
-                        <div class="welcome-learn-more-icon">
-                            <image src="images/learn-more.png"></image>
+        </script>
+    </head>
+    <body>
+        <section>
+            <div class="section1">
+                <div class="welcome">
+                    <h1 class="header1">Cybersecurity and Data privacy</h1>
+                    <div class="welcome-menu-bar">
+                        <div class="welcome-learn-more">
+                            <div class="welcome-learn-more-icon">
+                                <image src="images/learn-more.png"></image>
+                            </div>
+                            <h3 class="header3">Learn about privacy!</h3>
+                            <p class="paragraph">Nam ut justo placerat, eleifend sem at, finibus velit.</p>
+                            <button class="welcome-button" onclick="window.location.href='www.google.com'">Learn More</button>
                         </div>
-                        <h3 class="header3">Learn about privacy!</h3>
-                        <p class="paragraph">Nam ut justo placerat, eleifend sem at, finibus velit.</p>
-                        <button class="welcome-button" onclick="window.location.href='www.google.com'">Learn More</button>
-                    </div>
-                    <div class="welcome-quiz">
-                        <div class="welcome-quiz-icon">
-                            <image src="images/quiz.png"></image>
+                        <div class="welcome-quiz">
+                            <div class="welcome-quiz-icon">
+                                <image src="images/quiz.png"></image>
+                            </div>
+                            <h3 class="header3">Take the quiz!</h3>
+                            <p class="paragraph">Nam ut justo placerat, eleifend sem at, finibus velit.</p>
+                            <button class="welcome-button" onclick="scrollToSection(2)">Take the quiz!</button>
                         </div>
-                        <h3 class="header3">Take the quiz!</h3>
-                        <p class="paragraph">Nam ut justo placerat, eleifend sem at, finibus velit.</p>
-                        <button class="welcome-button" onclick="scrollToSection(2)">Take the quiz!</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section2">
-          <div class="care">
-              <h1 class="header1"> Why should you care </h1>
-          </div>
-          <div class="care-rows">
-            <div class="care-row">
-                <img src="https://www.printableparadise.com/shapes/printable-square-shape.png" alt="graph">
+            <div class="section2">
+            <div class="care">
+                <h1 class="header1"> Why should you care </h1>
+            </div>
+            <div class="care-rows">
+                <div class="slide-in">
+                    <img src="https://www.printableparadise.com/shapes/printable-square-shape.png" alt="graph">
+                    <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis.</p> 
+                </div>
+                <div class="slide-in">
                 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis.</p> 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src='https://www.printableparadise.com/shapes/printable-square-shape.png' alt="graph">
+                </div>
+                <div class="slide-in">
+                <img src="https://www.printableparadise.com/shapes/printable-square-shape.png" alt='graph'>
+                <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
             </div>
-            <div class="care-row">
-              <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <img src='https://www.printableparadise.com/shapes/printable-square-shape.png' alt="graph">
             </div>
-            <div class="care-row">
-              <img src="https://www.printableparadise.com/shapes/printable-square-shape.png" alt='graph'>
-              <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
-        </div>
-        <div class="section3"></div>
-        <div class="section4"></div>
-        <div class="section5"></div>
-        <div class="section6"></div>
-        <div class="section7"></div>
-        <div class="section8"></div>
-        <div class="section9"></div>
-        <div class="section10"></div>
-    </section>
-</body>
-</html>
+            <script div="slide">
+                const slideInSections = document.querySelectorAll('.slide-in');
+
+                function debounce(func, wait = 20, immediate = true) {
+                let timeout;
+                return function() {
+                    const context = this, args = arguments;
+                    const later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                    };
+                    const callNow = immediate && !timeout;
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                    if (callNow) func.apply(context, args);
+                };
+                }
+
+                function slideIn() {
+                slideInSections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const slideInAt = (window.innerHeight / 2) + section.offsetHeight;
+                    if (sectionTop < slideInAt) {
+                    section.classList.add('active');
+                    } else {
+                    section.classList.remove('active');
+                    }
+                });
+                }
+
+                const observer = new IntersectionObserver(debounce(slideIn), {
+                root: null,
+                threshold: 0,
+                });
+
+                slideInSections.forEach(section => {
+                observer.observe(section);
+                });
+            </script>
+            <div class="section3"></div>
+            <div class="section4"></div>
+            <div class="section5"></div>
+            <div class="section6"></div>
+            <div class="section7"></div>
+            <div class="section8"></div>
+            <div class="section9"></div>
+            <div class="section10"></div>
+        </section>
+    </body>
+    </html>
