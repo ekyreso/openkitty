@@ -5,42 +5,48 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Carme&family=Nixie+One&display=swap" rel="stylesheet">
         <style>
             section {
-                width: 100%;
-                height: 100%;
+                width: 1;
+                height: 1;
                 background-color: #07393C;
             }
             .header1 {
-                font-size: 50px;
+                font-size: 5rem;
                 font-weight: bold;
                 text-align: center;
                 font-family: "Carme", sans-serif;
             }
             .header2 {
-                font-size: 40px;
+                font-size: 4rem;
                 font-weight: bold;
                 text-align: center;
                 font-family: "Carme", sans-serif;}
             .header3 {
-                font-size: 30px;
+                font-size: 3rem;
                 font-weight: bold;
                 text-align: center;
                 font-family: "Carme", sans-serif;
             }
             .paragraph {
-                font-size: 20px;
+                font-size: 1.75rem;
                 text-align: center;
                 font-family: "Nibxie One", sans-serif;
             }
-            .section1 {
+            .kitty {
+                width: 25%;
+                height: 25%;
+                margin-top: 50px;
+            }
+            .icon {
+                width: 10%;
+                height: 10%;
+            }
+            .section-welcome {
                 width: 100%;
-                height: 100%;
                 height: 100vh;
                 background-color: #07393C;
                 display: flex;
@@ -49,13 +55,17 @@
             }
             .welcome {
                 width: 100%;
-                height: 90%;
+                height: 100%;
                 background-color: #07393C;
                 color: #ffffff;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+            }
+            .welcome-paragraph {
+                width: 40%;
+                text-justify: auto;
             }
             .welcome-menu-bar {
                 width: 100%;
@@ -76,7 +86,6 @@
                 justify-content: center;
                 align-items: center;
             }
-            .welcome-learn-more-icon {a:a;}
             .welcome-quiz {
                 width: 100%;
                 height: 100%;
@@ -86,27 +95,30 @@
                 justify-content: center;
                 align-items: center;
             }
-            .welcome-quiz-icon {a:a;}
             .welcome-button {
                 width: 25%;
-                height: 6%;
+                height: 7%;
                 background-color: #07393C;
                 color: #ffffff;
                 border: none;
-                border-radius: 5px;
+                border-radius: 10px;
                 font-size: 20px;
                 font-weight: bold;
-                padding: 10px;
                 margin-top: 10px;
             }
             .welcome-button:hover {
                 background-color: #ffffff;
                 color: #07393C;
             }
-            .section2 {
+            .section-morale {
                 width: 100%;
                 height: 100%;
                 background-color: #07393C;
+                color: #ffffff;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
             }
             .care {
                 width: 100%;
@@ -127,139 +139,99 @@
                 justify-content: center;
                 align-items: center;
                 margin-top: 50px;
+            }
+            .animated1 {
+                filter: blur(10px);
+                opacity: 0;
+                transform: translateY(100%);
+                transition: all 1.25s;
+            }
+            .animated2 {
+                transform: translateY(50%);
+                opacity: 0;
+                transition: all 1s
+            }
+            .animated3 {
                 transform: translateX(-50%);
                 opacity: 0;
-                transition: all 1s;
+                transition: all 1s
             }
-            .slide-in.active {
+            .animated4 {
+                transform: translateX(50%);
+                opacity: 0;
+                transition: all 1s
+            }
+            .animated1.active {
+                transform: translateX(0%);
+                filter: blur(0px);
+                opacity: 1;
+            }
+            .animated2.active {
+                opacity: 1;
+                transform: translateY(0%);
+            }            
+            .animated3.active, .animated4.active {
                 opacity: 1;
                 transform: translateX(0%);
-            }
-            .section3 {
-                width: 100%;
-                height: 100%;
-                background-color: #07393C;
-            }
-            .section4 {
-                width: 100%;
-                height: 100%;
-                background-color: #07393C;
-            }
-            .section5 {
-                width: 100%;
-                height: 100%;
-                background-color: #07393C;
-            }
-            .section6 {
-                width: 100%;
-                height: 100%;
-                background-color: #07393C;
-            }
-            .section7 {
-                width: 100%;
-                height: 100%;
-                background-color: #07393C;
-            }
-            .section8 {
-                width: 100%;
-                height: 100%;
-                background-color: #07393C;
-            }
-            .section9 {
-                width: 100%;
-                height: 100%;
-                background-color: #07393C;
-            }
-            .section10 {
-                width: 100%;
-                height: 100%;
-                background-color: #07393C;
-            }
-            .quiz {
-                width: 100%;
-                height: 100%;
-                background-color: #07393C;
-                color: #ffffff;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .quiz {
-                width: 100%;
-                height: 100%;
-                background-color: #07393C;
-                color: #ffffff;
-                display: flex;
-                flex-direction: column; 
-                justify-content: center;
-                align-items: center;
-            }
-            .results {
-                width: 100%;
-                height: 100%;
-                background-color: #07393C;
-                color: #ffffff;
-                display: flex;
-                justify-content: center;
-                align-items: center;  
             }
         </style>
         <script>
         function scrollToSection(section) {
-            var sectionEl = document.getElementsByClassName("section" + section)[0];
+            var sectionEl = document.getElementsByClassName("scroll" + section)[0];
             sectionEl.scrollIntoView({ behavior: 'smooth' });
         }
         </script>
     </head>
     <body>
         <section>
-            <div class="section1">
+            <div class="section-welcome animated1">
                 <div class="welcome">
-                    <h1 class="header1">Cybersecurity and Data privacy</h1>
+                    <image class="kitty" src="icons/kitty.svg" alt="kitty"></image>
+                    <h1 class="header1">Cybersecurity and Data privacy by OpenKITTY</h1>
                     <div class="welcome-menu-bar">
                         <div class="welcome-learn-more">
-                            <div class="welcome-learn-more-icon">
-                                <image src="images/learn-more.png"></image>
-                            </div>
+                            <image class="icon" src="icons/study.svg" alt="person studying"></image>
                             <h3 class="header3">Learn about privacy!</h3>
-                            <p class="paragraph">Nam ut justo placerat, eleifend sem at, finibus velit.</p>
-                            <button class="welcome-button" onclick="window.location.href='www.google.com'">Learn More</button>
+                            <div class="welcome-paragraph">
+                                <p class="paragraph">We prepared a quick course to keep you up to date with cybersecurity, whenever you're ready!</p>
+                            </div>
+                            <button class="welcome-button" onclick="scrollToSection(1)">Start learning!</button>
                         </div>
                         <div class="welcome-quiz">
-                            <div class="welcome-quiz-icon">
-                                <image src="images/quiz.png"></image>
-                            </div>
+                            <image class="icon" src="icons/brain.svg" alt="brain"></image>
                             <h3 class="header3">Take the quiz!</h3>
-                            <p class="paragraph">Nam ut justo placerat, eleifend sem at, finibus velit.</p>
+                            <div class="welcome-paragraph">
+                                <p class="paragraph">If you feel confident, you can start by checking your knowledge with our cybersecurity quiz!</p>
+                            </div>
                             <button class="welcome-button" onclick="scrollToSection(2)">Take the quiz!</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="section2">
-            <div class="care">
-                <h1 class="header1"> Why should you care </h1>
-            </div>
-            <div class="care-rows">
-                <div class="slide-in">
-                    <img src="https://www.printableparadise.com/shapes/printable-square-shape.png" alt="graph">
+            <div class="section-morale scroll1">
+                <div class="care">
+                    <h1 class="header1"> Why should you care </h1>
+                </div>
+                <div class="care-rows">
+                    <div class="slide-in animated3">
+                        <img src="https://www.printableparadise.com/shapes/printable-square-shape.png" alt="graph">
+                        <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis.</p> 
+                    </div>
+                    <div class="slide-in animated4">
                     <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis.</p> 
-                </div>
-                <div class="slide-in">
-                <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <img src='https://www.printableparadise.com/shapes/printable-square-shape.png' alt="graph">
-                </div>
-                <div class="slide-in">
-                <img src="https://www.printableparadise.com/shapes/printable-square-shape.png" alt='graph'>
-                <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <img src='https://www.printableparadise.com/shapes/printable-square-shape.png' alt="graph">
+                    </div>
+                    <div class="slide-in animated3">
+                    <img src="https://www.printableparadise.com/shapes/printable-square-shape.png" alt='graph'>
+                    <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
                 </div>
             </div>
-            </div>
-            <script div="slide">
-                const slideInSections = document.querySelectorAll('.slide-in');
+            <script>
+                const animated = document.querySelectorAll('.animated' + 1 + ', .animated' + 2 + ', .animated' + 3 + ', .animated' + 4);
 
                 function debounce(func, wait = 20, immediate = true) {
                 let timeout;
@@ -277,7 +249,7 @@
                 }
 
                 function slideIn() {
-                slideInSections.forEach(section => {
+                animated.forEach(section => {
                     const sectionTop = section.getBoundingClientRect().top;
                     const slideInAt = (window.innerHeight / 2) + section.offsetHeight;
                     if (sectionTop < slideInAt) {
@@ -290,21 +262,21 @@
 
                 const observer = new IntersectionObserver(debounce(slideIn), {
                 root: null,
-                threshold: 0,
+                threshold: 0.15,
                 });
 
-                slideInSections.forEach(section => {
+                animated.forEach(section => {
                 observer.observe(section);
                 });
             </script>
-            <div class="section3"></div>
-            <div class="section4"></div>
-            <div class="section5"></div>
-            <div class="section6"></div>
-            <div class="section7"></div>
-            <div class="section8"></div>
-            <div class="section9"></div>
-            <div class="section10"></div>
+            <div class="section-introduction"></div>
+            <div class="section-knowledge"></div>
+            <div class="section-knowledge"></div>
+            <div class="section-knowledge"></div>
+            <div class="section-knowledge"></div>
+            <div class="section-knowledge"></div>
+            <div class="section-knowledge"></div>
+            <div class="section-quiz scroll2"></div>
         </section>
     </body>
     </html>
