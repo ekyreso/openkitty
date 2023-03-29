@@ -8,11 +8,84 @@
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Carme&family=Nixie+One&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            particlesJS('particles', {
+                particles: {
+                number: { value: 100, density: { enable: true, value_area: 800 } },
+                color: { value: '#ffffff' },
+                shape: { type: 'circle', stroke: { width: 0, color: '#000000' }, polygon: { nb_sides: 5 }, image: { src: 'img/github.svg', width: 100, height: 100 } },
+                opacity: { value: 0.5, random: false, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
+                size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+                line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
+                },
+                interactivity: { detect_on: 'canvas', events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true }, modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } } },
+                retina_detect: true
+            });
+
+            window.addEventListener('scroll', function() {
+                var scrollTop = window.scrollY;
+                var particlesContainer = document.getElementById('particles');
+                particlesContainer.style.transform = 'translateY(' + (scrollTo / 2) + 'px)';
+            });
+
+            const animated = document.querySelectorAll('.animated' + 1 + ', .animated' + 2 + ', .animated' + 3 + ', .animated' + 4);
+
+            function debounce(func, wait = 20, immediate = true) {
+            let timeout;
+            return function() {
+                const context = this, args = arguments;
+                const later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+                };
+                const callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+            }
+
+            function slideIn() {
+            animated.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const slideInAt = (window.innerHeight / 2) + section.offsetHeight;
+                if (sectionTop < slideInAt) {
+                section.classList.add('active');
+                } else {
+                section.classList.remove('active');
+                }
+            });
+            }
+
+            const observer = new IntersectionObserver(debounce(slideIn), {
+            root: null,
+            threshold: 0.15,
+            });
+
+            animated.forEach(section => {
+            observer.observe(section);
+            });
+        });
+        </script>
         <style>
-            section {
-                width: 1;
-                height: 1;
+            body {
+                background-color : #07393C;
+                height: 100%;
+                width: 100%;
+                color: #ffffff;
+            }
+            #particles {
                 background-color: #07393C;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
             }
             .header1 {
                 font-size: 5rem;
@@ -48,7 +121,6 @@
             .section-welcome {
                 width: 100%;
                 height: 100vh;
-                background-color: #07393C;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -56,7 +128,6 @@
             .welcome {
                 width: 100%;
                 height: 100%;
-                background-color: #07393C;
                 color: #ffffff;
                 display: flex;
                 flex-direction: column;
@@ -71,7 +142,6 @@
                 width: 100%;
                 height: 100%;
                 color: #ffffff;
-                background-color: #07393C;
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
@@ -80,7 +150,6 @@
             .welcome-learn-more {
                 width: 100%;
                 height: 100%;
-                background-color: #07393C;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -89,7 +158,6 @@
             .welcome-quiz {
                 width: 100%;
                 height: 100%;
-                background-color: #07393C;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -113,7 +181,6 @@
             .section-morale {
                 width: 100%;
                 height: 100%;
-                background-color: #07393C;
                 color: #ffffff;
                 display: flex;
                 flex-direction: column;
@@ -123,22 +190,52 @@
             .care {
                 width: 100%;
                 height: 100%;
-                background-color: #07393C;
                 color: #ffffff;
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
+            .care-img {
+                size: 50%;
+                border-radius: 150%;
+            }
             .slide-in {
                 width: 100%;
                 height: 100%;
-                background-color: #07393C;
                 color: #ffffff;
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
                 margin-top: 50px;
+            }
+            .nav-bar-section-knowledge {
+                width: 100%;
+                height: 100%;
+                color: #ffffff;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+            .section-knowledge {
+                width: 100%;
+                height: 100vh;
+                color: #ffffff;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .nav-bar-knowledge-button {
+                width: 15.8%;
+                height: 7%;
+                background-color: #07393C;
+                color: #ffffff;
+                border: none;
+                border-radius: 10px;
+                font-size: 1rem;
+                margin-top: 10px;
             }
             .animated1 {
                 filter: blur(10px);
@@ -180,10 +277,11 @@
             var sectionEl = document.getElementsByClassName("scroll" + section)[0];
             sectionEl.scrollIntoView({ behavior: 'smooth' });
         }
-        </script>
+        </script>       
     </head>
     <body>
         <section>
+        <div id="particles"></div>
             <div class="section-welcome animated1">
                 <div class="welcome">
                     <image class="kitty" src="icons/kitty.svg" alt="kitty"></image>
@@ -214,69 +312,48 @@
                 </div>
                 <div class="care-rows">
                     <div class="slide-in animated3">
-                        <img src="https://www.printableparadise.com/shapes/printable-square-shape.png" alt="graph">
+                        <img class="care-img" src="https://www.printableparadise.com/shapes/printable-square-shape.png" alt="graph">
                         <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. 
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis.</p> 
                     </div>
                     <div class="slide-in animated4">
                     <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. 
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <img src='https://www.printableparadise.com/shapes/printable-square-shape.png' alt="graph">
+                    <img class="care-img" src='https://www.printableparadise.com/shapes/printable-square-shape.png' alt="graph">
                     </div>
                     <div class="slide-in animated3">
-                    <img src="https://www.printableparadise.com/shapes/printable-square-shape.png" alt='graph'>
+                    <img class="care-img" src="https://www.printableparadise.com/shapes/printable-square-shape.png" alt='graph'>
                     <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. 
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                 </div>
             </div>
-            <script>
-                const animated = document.querySelectorAll('.animated' + 1 + ', .animated' + 2 + ', .animated' + 3 + ', .animated' + 4);
-
-                function debounce(func, wait = 20, immediate = true) {
-                let timeout;
-                return function() {
-                    const context = this, args = arguments;
-                    const later = function() {
-                    timeout = null;
-                    if (!immediate) func.apply(context, args);
-                    };
-                    const callNow = immediate && !timeout;
-                    clearTimeout(timeout);
-                    timeout = setTimeout(later, wait);
-                    if (callNow) func.apply(context, args);
-                };
-                }
-
-                function slideIn() {
-                animated.forEach(section => {
-                    const sectionTop = section.getBoundingClientRect().top;
-                    const slideInAt = (window.innerHeight / 2) + section.offsetHeight;
-                    if (sectionTop < slideInAt) {
-                    section.classList.add('active');
-                    } else {
-                    section.classList.remove('active');
-                    }
-                });
-                }
-
-                const observer = new IntersectionObserver(debounce(slideIn), {
-                root: null,
-                threshold: 0.15,
-                });
-
-                animated.forEach(section => {
-                observer.observe(section);
-                });
-            </script>
-            <div class="section-introduction"></div>
-            <div class="section-knowledge"></div>
-            <div class="section-knowledge"></div>
-            <div class="section-knowledge"></div>
-            <div class="section-knowledge"></div>
-            <div class="section-knowledge"></div>
-            <div class="section-knowledge"></div>
-            <div class="section-quiz scroll2"></div>
+            <div class="section-introduction">
+                <div class="introduction">
+                    <h1 class="header1">Introduction</h1>
+                    <image class="icon" src="icons/brain.svg" alt="brain"></image>
+                    <div class="introduction-paragraph">
+                        <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa sem, convallis in iaculis quis, euismod in felis.</p>
+                    </div>
+                    <div class="nav-bar-section-knowledge">
+                        <div class="nav-bar-knowledge">
+                            <button class="nav-bar-knowledge-button" onclick="scrollToSection(2)">EU privacy Laws</button>
+                            <button class="nav-bar-knowledge-button" onclick="scrollToSection(3)">Privacy Policy</button>
+                            <button class="nav-bar-knowledge-button" onclick="scrollToSection(4)">Cookies</button>
+                            <button class="nav-bar-knowledge-button" onclick="scrollToSection(5)">Forms</button>
+                            <button class="nav-bar-knowledge-button" onclick="scrollToSection(6)">Google Analytics</button>
+                            <button class="nav-bar-knowledge-button" onclick="scrollToSection(7)">Data Breaches</button>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+            <div class="section-knowledge scroll2">EU privacy Laws</div>
+            <div class="section-knowledge scroll3">Privacy Policy</div>
+            <div class="section-knowledge scroll4">Cookies</div>
+            <div class="section-knowledge scroll5">Forms</div>
+            <div class="section-knowledge scroll6">Google Analytics</div>
+            <div class="section-knowledge scroll7">Data Breaches</div>
+            <div class="section-quiz scroll2">Quiz</div>
         </section>
     </body>
     </html>
