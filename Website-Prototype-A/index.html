@@ -8,6 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Carme&family=Nixie+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -80,6 +81,7 @@
                 height: 100%;
                 width: 100%;
                 color: #ffffff;
+                font-family: 'Nanum Gothic', sans-serif;
             }
             #particles {
                 background-color: #07393C;
@@ -93,26 +95,28 @@
             }
             .header1 {
                 font-size: 5rem;
-                font-weight: bold;
+                font-weight: 700;
                 text-align: center;
-                font-family: "Carme", sans-serif;
+                font-family: 'Nanum Gothic', sans-serif;
             }
             .header2 {
                 font-size: 4rem;
-                font-weight: bold;
+                font-weight: 700;
                 text-align: center;
-                font-family: "Carme", sans-serif;}
+                font-family: 'Nanum Gothic', sans-serif;
+            }
             .header3 {
                 font-size: 3rem;
-                font-weight: bold;
+                font-weight: 700;
                 text-align: center;
-                font-family: "Carme", sans-serif;
+                font-family: 'Nanum Gothic', sans-serif;
             }
             .paragraph {
                 font-size: 1.75rem;
+                font-weight: 400;
                 text-align: justify;
                 text-justify: auto;
-                font-family: "Nibxie One", sans-serif;
+                font-family: 'Nanum Gothic', sans-serif;
             }
             #kitty {
                 width: 25%;
@@ -271,6 +275,9 @@
                 justify-content: center;
                 align-items: center;
             }
+            #answers {
+                font-weight: lighter;
+            }
         </style>
         <script>
             function scrollToSection(section) {
@@ -379,7 +386,7 @@
                     <ol>
                     <li>
                         <h2>The website asks consent to cookies.</h2>
-                        <ul>
+                        <ul id="answers">
                             <li><label><input type="radio" name="q1" value="a"> Yes, and all the options are presented as equals (same colour and same patterns)</label></li>
                             <li><label><input type="radio" name="q1" value="b"> Yes, but it is nudged to consent to all cookies rather than reject them</label></li>
                             <li><label><input type="radio" name="q1" value="c"> No</label></li>
@@ -387,7 +394,7 @@
                     </li>
                     <li>
                         <h2>The website uses third-party tracker (like Google Analytics and Hotjar)</h2>
-                        <ul>
+                        <ul id="answers">
                             <li><label><input type="radio" name="q2" value="a"> Yes, but the settings are adjusted to pseudonymised (IP addresses hidden)</label></li>
                             <li><label><input type="radio" name="q2" value="b"> Yes, with default settings</label></li>
                             <li><label><input type="radio" name="q2" value="c"> No  </label></li>
@@ -395,7 +402,7 @@
                     </li>
                     <li>
                         <h2>The privacy policy is available on the website</h2>
-                        <ul>
+                        <ul id="answers">
                             <li><label><input type="radio" name="q3" value="a"> Yes, it is located at the bottom of the page</label></li>
                             <li><label><input type="radio" name="q3" value="b"> Yes, somewhere else</label></li>
                             <li><label><input type="radio" name="q3" value="c"> There is no privacy policy/the link is broken</label></li>
@@ -403,7 +410,7 @@
                     </li>
                     <li>
                         <h2>There is a form on the website</h2>
-                        <ul>
+                        <ul id="answers">
                             <li><label><input type="radio" name="q4" value="a"> Yes, but it doesn’t require personal information</label></li>
                             <li><label><input type="radio" name="q4" value="b"> Yes, and it asks for personal information</label></li>
                             <li><label><input type="radio" name="q4" value="c"> No</label></li>
@@ -411,7 +418,7 @@
                     </li>
                     <li>
                         <h2>The data from a form is disposed properly</h2>
-                        <ul>
+                        <ul id="answers">
                             <li><label><input type="radio" name="q5" value="a"> Yes, it is periodically deleted/anonymised</label></li>
                             <li><label><input type="radio" name="q5" value="b"> No, it is stored for long amounts of time for future use</label></li>
                             <li><label><input type="radio" name="q5" value="c"> There is no form</label></li>
@@ -419,7 +426,7 @@
                     </li>
                     <li>
                         <h2>There is a limited amount of website administrators</h2>
-                        <ul>
+                        <ul id="answers">
                             <li><label><input type="radio" name="q6" value="a"> Yes, the updating is done by selected individuals</label></li>
                             <li><label><input type="radio" name="q6" value="b"> Yes, only one</label></li>
                             <li><label><input type="radio" name="q6" value="c"> No, the login information is available for everyone in my organisation</label></li>
