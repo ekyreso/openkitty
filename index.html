@@ -1,0 +1,439 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Carme&family=Nixie+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            particlesJS('particles', {
+                particles: {
+                number: { value: 100, density: { enable: true, value_area: 800 } },
+                color: { value: '#ffffff' },
+                shape: { type: 'circle', stroke: { width: 0, color: '#000000' }, polygon: { nb_sides: 5 }, image: { src: 'img/github.svg', width: 100, height: 100 } },
+                opacity: { value: 0.5, random: false, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
+                size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+                line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
+                },
+                interactivity: { detect_on: 'canvas', events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true }, modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } } },
+                retina_detect: true
+            });
+
+            window.addEventListener('scroll', function() {
+                var scrollTop = window.scrollY;
+                var particlesContainer = document.getElementById('particles');
+                particlesContainer.style.transform = 'translateY(' + (scrollTo / 2) + 'px)';
+            });
+
+            const animated = document.querySelectorAll('.animated' + 1 + ', .animated' + 2 + ', .animated' + 3 + ', .animated' + 4);
+
+            function debounce(func, wait = 20, immediate = true) {
+            let timeout;
+            return function() {
+                const context = this, args = arguments;
+                const later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+                };
+                const callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+            }
+
+            function slideIn() {
+            animated.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const slideInAt = (window.innerHeight / 2) + section.offsetHeight;
+                if (sectionTop < slideInAt) {
+                section.classList.add('active');
+                } else {
+                section.classList.remove('active');
+                }
+            });
+            }
+
+            const observer = new IntersectionObserver(debounce(slideIn), {
+            root: null,
+            threshold: 0.15,
+            });
+
+            animated.forEach(section => {
+            observer.observe(section);
+            });
+        });
+        </script>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                background-color : #07393C;
+                height: 100%;
+                width: 100%;
+                color: #ffffff;
+                font-family: 'Nanum Gothic', sans-serif;
+            }
+            #particles {
+                background-color: #07393C;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                filter: blur(5px);
+            }
+            .header1 {
+                font-size: 5rem;
+                font-weight: 700;
+                text-align: center;
+                font-family: 'Nanum Gothic', sans-serif;
+            }
+            .header2 {
+                font-size: 4rem;
+                font-weight: 700;
+                text-align: center;
+                font-family: 'Nanum Gothic', sans-serif;
+            }
+            .header3 {
+                font-size: 3rem;
+                font-weight: 700;
+                text-align: center;
+                font-family: 'Nanum Gothic', sans-serif;
+            }
+            .paragraph {
+                font-size: 1.75rem;
+                font-weight: 400;
+                text-align: justify;
+                text-justify: auto;
+                font-family: 'Nanum Gothic', sans-serif;
+            }
+            #kitty {
+                width: 25%;
+                height: 25%;
+                margin-top: 50px;
+            }
+            #brain, #study {
+                width: 10%;
+                height: 10%;
+            }
+            .flex-center {
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .flex-column {
+                width: 100%;
+                height: 100%;
+                color: #ffffff;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .flex-row {
+                width: 100%;
+                height: 100%;
+                color: #ffffff;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 5vw;
+            }
+            #welcome-paragraph {
+                width: 40%;
+                text-justify: auto;
+                text-align: center;
+            }
+            #welcome-button, .results {
+                width: 25%;
+                height: 7%;
+                background-color: #07393C;
+                color: #ffffff;
+                border: none;
+                border-radius: 10px;
+                font-size: 20px;
+                font-weight: bold;
+                margin-top: 10px;
+            }
+            .results {
+                border: #fff;
+                border-style: solid;
+                border-width: 2px;
+            }
+            #welcome-button:hover, .results:hover {
+                background-color: #ffffff;
+                color: #07393C;
+            }
+            .slide-in {
+                width: 100%;
+                height: 100%;
+                color: #ffffff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 7.5vw;
+                gap: 5vw;
+            }
+            .knowledge {
+                height: 100vh;
+                padding: 7.5vw;
+            }
+            .knowledge-image {
+                width: 60%;
+                height: 60%;
+            }
+            .knowledge-button {
+                width: 15.8%;
+                height: 7%;
+                background-color: #07393C;
+                color: #ffffff;
+                border: none;
+                border-radius: 10px;
+                font-size: 1.3rem;
+                margin-top: 10px;
+            }
+            #image-care {
+                width: 25%;
+                height: 25%;
+            }
+            .animated1 {
+                filter: blur(10px);
+                opacity: 0;
+                transform: translateY(100%);
+                transition: all 1.25s;
+            }
+            .animated2 {
+                transform: translateY(50%);
+                opacity: 0;
+                transition: all 1s
+            }
+            .animated3 {
+                transform: translateX(-50%);
+                opacity: 0;
+                transition: all 1s
+            }
+            .animated4 {
+                transform: translateX(50%);
+                opacity: 0;
+                transition: all 1s
+            }
+            .animated1.active {
+                transform: translateX(0%);
+                filter: blur(0px);
+                opacity: 1;
+            }
+            .animated2.active {
+                opacity: 1;
+                transform: translateY(0%);
+            }            
+            .animated3.active, .animated4.active {
+                opacity: 1;
+                transform: translateX(0%);
+            }
+            #brain-intro {
+                width: 20%;
+                height: 20%;
+                margin-top: 3.5vw;
+            }
+            #introduction {
+                padding: 15vw;  
+            }
+            #introduction-paragraph {
+                font-size: 2rem;
+                margin-top: 3.5vw;
+                margin-bottom: 3.5vw;
+                text-align: center;
+            }
+            #quiz {
+                padding: 15vw;
+            }
+            #quiz-questions {
+                margin-top: 3.5vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            #quiz-paragraph {
+                margin-top: 3.5vw;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+            }
+            #answers {
+                font-weight: lighter;
+            }
+        </style>
+        <script>
+            function scrollToSection(section) {
+                var sectionEl = document.getElementsByClassName("scroll" + section)[0];
+                sectionEl.scrollIntoView({ behavior: 'smooth' });
+            }
+        </script>
+    </head>
+    <body>
+        <section>
+        <div id="particles"></div>
+            <div class="flex-center animated1" id="welcome">
+                <div class="flex-column">
+                    <image class="icon" id="kitty" src="icons/kitty.svg" alt="kitty"></image>
+                    <h1 class="header1">Cybersecurity and Data privacy by OpenKITTY</h1>
+                    <div class="flex-row">
+                        <div class="flex-column">
+                            <image id="study" src="icons/study.svg" alt="person studying"></image>
+                            <h3 class="header3">Learn about privacy!</h3>
+                            <p class="paragraph" id="welcome-paragraph">We prepared a quick course to keep you up to date with cybersecurity, whenever you're ready!</p>
+                            <button class="button" id="welcome-button" onclick="scrollToSection(1)">Start learning!</button>
+                        </div>
+                        <div class="flex-column">
+                            <image id="brain" src="icons/brain.svg" alt="brain"></image>
+                            <h3 class="header3">Take the quiz!</h3>
+                            <p class="paragraph" id="welcome-paragraph">If you feel confident, you can start by checking your knowledge with our cybersecurity quiz!</p>
+                            <button id="welcome-button" onclick="scrollToSection(8)">Take the quiz!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-column scroll1" id="morale">
+                <h1 class="header1"> Why should you care </h1>
+                <div class="slide-in animated3">
+                    <img id="image-care" src="icons/data.svg" alt="graph">
+                    <p class="paragraph">While an organisation’s website might not ask you to input any health data into it, even the information that someone is seeking help about a specific topic can be harmful information in the wrong hands.<br><br> For example, by using third-party services on a website, you can’t always know what you’re consenting to. While the terms of service might be privacy friendly at the time of enabling these services, they are subject to change and require monitoring.</p> 
+                </div>
+                <div class="slide-in animated4">
+                    <p class="paragraph">If careless data protection is detected on a website, the Dutch Data Protection Authority can fine an organisation of a maximum of 20 million euros or 4 per cent of the annual turnover of the company. <br><br>For example, <a href="https://autoriteitpersoonsgegevens.nl/nl/nieuws/ap-boete-orthodontiepraktijk-vanwege-onbeveiligde-patientenwebsite">in June 2021, an orthodontic practice was fined 12,000 euros</a>. The practice had users register on a website that was not secured, exposing private information like BSNs to a potential leak. </p>
+                    <img id="image-care" src='icons/money.svg' alt="graph">
+                </div>
+                <div class="slide-in animated3">
+                    <img id="image-care" src="icons/privacy.svg" alt='graph'>
+                    <p class="paragraph">Privacy policies are important because they inform you of how companies and organizations collect, use, and protect your personal information, allowing you to make informed decisions about sharing it. By understanding a privacy policy, you can ensure that your personal information is being handled appropriately and securely, as well as learn about your rights when it comes to your data, such as your right to access, update, and delete it.<br><br>Privacy policies can also help you avoid unwanted marketing messages, as they often detail how companies use personal information for targeted advertising. Additionally, privacy policies can ensure that companies are complying with regulations and privacy standards that protect your privacy rights. Overall, reading and understanding privacy policies is an important tool for protecting your personal information and making informed decisions about how you share it with companies and organizations.</p>
+                </div>
+            </div>
+            <div class="flex-column" id="introduction">
+                <h1 class="header1">Introduction</h1>
+                <image id="brain-intro" src="icons/start.svg" alt="brain"></image>
+                <p class="paragraph" id="introduction-paragraph">We have prepared a quick course to guide you through the most important things to consider while evaluating the data handling of the websites!</p>
+                <div class="flex-row">
+                    <button class="knowledge-button" onclick="scrollToSection(2)">EU privacy Laws</button>
+                    <button class="knowledge-button" onclick="scrollToSection(3)">Privacy Policy</button>
+                    <button class="knowledge-button" onclick="scrollToSection(4)">Cookies</button>
+                    <button class="knowledge-button" onclick="scrollToSection(5)">Forms</button>
+                    <button class="knowledge-button" onclick="scrollToSection(6)">Google Analytics</button>
+                    <button class="knowledge-button" onclick="scrollToSection(7)">Data Breaches</button>
+                </div>
+            </div>   
+            <div class="flex-column knowledge scroll2" id="EU">
+                <h1 class="header1">EU privacy Laws</h1>
+                <div class="flex-row animated4">
+                <p class="paragraph">The General Data Protection Regulation (GDPR) is a privacy and security law in EU legislation with the purpose of protecting an individual’s data and privacy within the EU and European Economic Area (EEA). It was passed by the EU  as to impose obligations onto organisations that aim to target or collect data related to EU citizens. It was first put into effect on May 25, 2018.  The GDPR’s main aim is to maximise an individual’s control over their personal and sensible information, while also simplifying the regulatory environment for international business. <br> <br>Ignoring GDPR regulation can result fines of up to million euros, or up to 4% of the organisation’s worldwide turnover fo the previous financial year, whichever is greater. For less severe violations, fines of up to 10 million euros, or 2% of the company’s revenue (if higher) can be applied. The fines must be proportionate and effective for each particular case.</p>
+                <image class="knowledge-image" id="EU-image" src="icons/gdpr.svg"></image>
+                </div>
+            </div>
+            <div class="flex-column knowledge scroll3" id="Privacy-image">
+                <h1 class="header1">Privacy Policy</h1>
+                <div class="flex-row animated3">
+                <p class="paragraph ">Under the GDPR, every website needs to have a privacy policy easily findable on their website. A privacy policy might be even required under the terms of service of third party trackers, such as Google Analytics (link).<br><br> There are numerous privacy policy templates available online, but many of them fail to meet the GDPR requirements of clear and plain language.The typical placement of a link to a privacy policy is in the footer at the bottom of the page. By following this convention, your users can find it easily.</p>
+                <image class="knowledge-image" id="Privacy-image" src="icons/privacy.svg"></image>
+                </div>
+            </div>
+            <div class="flex-column knowledge scroll4" id="Cookies">
+                <h1 class="header1">Cookies</h1>
+                <div class="flex-row animated4">
+                <p class="paragraph ">Dark patterns are manipulative design tactics used by websites and apps to deceive users into taking actions they would not take otherwise. One area where dark patterns are commonly used is in the context of cookies, which are small text files that websites use to track user behavior and preferences. Some websites use dark patterns to trick users into accepting cookies or giving away their personal data without realizing it.<br><br>For example, they may present a confusing or misleading message about cookies that makes it seem like users have no choice but to accept them, or bury cookie settings in a hard-to-find place on the website. By using these unethical tactics, websites and apps can violate users' privacy and undermine their ability to control how their data is used.</p>
+                <image class="knowledge-image" id="Cookies-image" src="icons/cookies.svg"></image>
+                </div>
+            </div>
+            <div class="flex-column knowledge scroll5" id="Forms">
+                <h1 class="header1">Forms</h1>
+                <div class="flex-row animated3">
+                <p class="paragraph">Forms on the internet, such as newsletters, surveys, and contact forms, can pose significant risks to users' data. When filling out a form, users may be required to provide personal information such as their name, email address, phone number, and in some extreme cases, even sensitive information like their BSN number. This information can be vulnerable to data breaches, cyber-attacks, and unauthorized access by third-party. <br><br>In some cases, forms may also track users' web behaviour and preferences, which can be used for targeted advertising or sold to data brokers. It's important for users to exercise caution when submitting personal information through online forms and to be aware of the privacy policies of the websites they interact with.</p>
+                <image class="knowledge-image" id="Forms-image" src="icons/forms.svg"></image>
+                </div>
+            </div>
+            <div class="flex-column knowledge scroll6" id="GA">
+                <h1 class="header1">Google Analytics</h1>
+                <div class="flex-row animated4">
+                <p class="paragraph">Google analytics is a web analytics service by Google. It helps website owners analyse user traffic within their websites. It is an effective tool as it allows website owners to identify trends, and measure the effectiveness of their marketing strategies, in order to optimise the website for an overall better performance. Multiple privacy concerns have been raised regarding Google Analytics. Due to the very nature of the software, it collects sensible information such as geolocation, and browser and device information, which is obtained through the usage of website tracking and cookies .<br><br> Moreover, third-party cookies can be extremely intrusive when it comes to personally identifiable information in the website such as user detail, IP address, and preferred payment methods, just to name a few. Some of these details often end up being used by third party advertisers, which allows them to use targeted advertising without the users knowledge or consent. Regulations, such as the General Data Protection Regulation or GDPR emerged as a way of responding against these kind of reckless data tracking. As such, when using Google Analytics, it is required to disclose: How it is being used and how it collects and processes data.</p>
+                <image class="knowledge-image" id="GA-image" src="icons/ga4.svg"></image>
+                </div>
+            </div>
+            <div class="flex-column knowledge scroll7" id="Breaches">
+                <h1 class="header1">Data Breaches</h1>
+                <div class="flex-row animated3">
+                <p class="paragraph">In case of a data security breach in the Netherlands, it is important to take immediate action to minimize the damage and comply with legal requirements. The first step is to contain the breach and investigate the extent of the damage. The Dutch Data Protection Authority should also be notified as soon as possible, as the organization is responsible for enforcing the General Data Protection Regulation (GDPR) in the Netherlands.<br><br> Depending on the nature and severity of the breach, affected individuals may also need to be notified. It is essential to take all necessary measures to prevent future breaches, including updating security protocols and training staff on data protection best practices.</p>
+                <image class="knowledge-image" id="Breaches-image" src="icons/data.svg"></image>
+                </div>
+            </div>
+            <div class="flew-column scroll8" id="Quiz">
+                <h1 class="header1">Quiz!</h1>
+                <p class="paragraph" id="quiz-paragraph">Take the quiz to test your knowledge on dark patterns and privacy of the healthcare website of your choice for it's privacy respect evaluaction!</p>
+                <form id="quiz-questions">
+                    <ol>
+                    <li>
+                        <h2>The website asks consent to cookies.</h2>
+                        <ul id="answers">
+                            <li><label><input type="radio" name="q1" value="a"> Yes, and all the options are presented as equals (same colour and same patterns)</label></li>
+                            <li><label><input type="radio" name="q1" value="b"> Yes, but it is nudged to consent to all cookies rather than reject them</label></li>
+                            <li><label><input type="radio" name="q1" value="c"> No</label></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>The website uses third-party tracker (like Google Analytics and Hotjar)</h2>
+                        <ul id="answers">
+                            <li><label><input type="radio" name="q2" value="a"> Yes, but the settings are adjusted to pseudonymised (IP addresses hidden)</label></li>
+                            <li><label><input type="radio" name="q2" value="b"> Yes, with default settings</label></li>
+                            <li><label><input type="radio" name="q2" value="c"> No  </label></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>The privacy policy is available on the website</h2>
+                        <ul id="answers">
+                            <li><label><input type="radio" name="q3" value="a"> Yes, it is located at the bottom of the page</label></li>
+                            <li><label><input type="radio" name="q3" value="b"> Yes, somewhere else</label></li>
+                            <li><label><input type="radio" name="q3" value="c"> There is no privacy policy/the link is broken</label></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>There is a form on the website</h2>
+                        <ul id="answers">
+                            <li><label><input type="radio" name="q4" value="a"> Yes, but it doesn’t require personal information</label></li>
+                            <li><label><input type="radio" name="q4" value="b"> Yes, and it asks for personal information</label></li>
+                            <li><label><input type="radio" name="q4" value="c"> No</label></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>The data from a form is disposed properly</h2>
+                        <ul id="answers">
+                            <li><label><input type="radio" name="q5" value="a"> Yes, it is periodically deleted/anonymised</label></li>
+                            <li><label><input type="radio" name="q5" value="b"> No, it is stored for long amounts of time for future use</label></li>
+                            <li><label><input type="radio" name="q5" value="c"> There is no form</label></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>There is a limited amount of website administrators</h2>
+                        <ul id="answers">
+                            <li><label><input type="radio" name="q6" value="a"> Yes, the updating is done by selected individuals</label></li>
+                            <li><label><input type="radio" name="q6" value="b"> Yes, only one</label></li>
+                            <li><label><input type="radio" name="q6" value="c"> No, the login information is available for everyone in my organisation</label></li>
+                    </ul>
+                </li>
+                <button class="results">Results!</button>
+            </div>
+        </section>
+    </body>
+    </html>
