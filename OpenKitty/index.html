@@ -12,7 +12,7 @@
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
+
             particlesJS('particles', {
                 particles: {
                 number: { value: 100, density: { enable: true, value_area: 800 } },
@@ -27,11 +27,17 @@
                 retina_detect: true
             });
 
-            window.addEventListener('scroll', function() {
-                var scrollTop = window.scrollY;
-                var particlesContainer = document.getElementById('particles');
-                particlesContainer.style.transform = 'translateY(' + (scrollTo / 2) + 'px)';
-            });
+            var progressBar = document.getElementById("myBar");
+
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+                var windowHeight = window.innerHeight;
+                var fullHeight = document.body.clientHeight;
+                var scrollPosition = window.pageYOffset;
+                var progress = (scrollPosition / (fullHeight - windowHeight)) * 100;
+                progressBar.style.width = progress + "%";
+            }
 
             const animated = document.querySelectorAll('.animated' + 1 + ', .animated' + 2 + ', .animated' + 3 + ', .animated' + 4);
 
@@ -83,6 +89,21 @@
                 color: #ffffff;
                 font-family: 'Nanum Gothic', sans-serif;
             }
+            .progress-container {
+            width: 100%;
+            height: 8px;
+            background-color: #f1f1f1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            }
+
+            .progress-bar {
+            height: 100%;
+            background-color: #4caf50;
+            width: 0%;
+            }
             #particles {
                 background-color: #07393C;
                 position: fixed;
@@ -91,7 +112,6 @@
                 width: 100%;
                 height: 100%;
                 z-index: -1;
-                filter: blur(5px);
             }
             .header1 {
                 font-size: 5rem;
@@ -287,6 +307,9 @@
         </script>
     </head>
     <body>
+        <div class="progress-container">
+            <div class="progress-bar" id="myBar"></div>
+          </div>
         <section>
         <div id="particles"></div>
             <div class="flex-center animated1" id="welcome">
