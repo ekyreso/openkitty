@@ -12,7 +12,7 @@
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         <script>
         document.addEventListener('DOMContentLoaded', function() {
-
+            
             particlesJS('particles', {
                 particles: {
                 number: { value: 100, density: { enable: true, value_area: 800 } },
@@ -27,17 +27,11 @@
                 retina_detect: true
             });
 
-            var progressBar = document.getElementById("myBar");
-
-            window.onscroll = function() {scrollFunction()};
-
-            function scrollFunction() {
-                var windowHeight = window.innerHeight;
-                var fullHeight = document.body.clientHeight;
-                var scrollPosition = window.pageYOffset;
-                var progress = (scrollPosition / (fullHeight - windowHeight)) * 100;
-                progressBar.style.width = progress + "%";
-            }
+            window.addEventListener('scroll', function() {
+                var scrollTop = window.scrollY;
+                var particlesContainer = document.getElementById('particles');
+                particlesContainer.style.transform = 'translateY(' + (scrollTo / 2) + 'px)';
+            });
 
             const animated = document.querySelectorAll('.animated' + 1 + ', .animated' + 2 + ', .animated' + 3 + ', .animated' + 4);
 
@@ -81,6 +75,7 @@
         <style>
             * {
                 box-sizing: border-box;
+                overflow-x: clip;
             }
             body {
                 background-color : #07393C;
@@ -88,21 +83,6 @@
                 width: 100%;
                 color: #ffffff;
                 font-family: 'Nanum Gothic', sans-serif;
-            }
-            .progress-container {
-            width: 100%;
-            height: 8px;
-            background-color: #f1f1f1;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 9999;
-            }
-
-            .progress-bar {
-            height: 100%;
-            background-color: #4caf50;
-            width: 0%;
             }
             #particles {
                 background-color: #07393C;
@@ -223,7 +203,7 @@
                 color: #ffffff;
                 border: none;
                 border-radius: 10px;
-                font-size: 1rem;
+                font-size: 1.3rem;
                 margin-top: 10px;
             }
             #image-care {
@@ -265,8 +245,8 @@
                 transform: translateX(0%);
             }
             #brain-intro {
-                width: 40%;
-                height: 40%;
+                width: 20%;
+                height: 20%;
                 margin-top: 3.5vw;
             }
             #introduction {
@@ -307,9 +287,6 @@
         </script>
     </head>
     <body>
-        <div class="progress-container">
-            <div class="progress-bar" id="myBar"></div>
-          </div>
         <section>
         <div id="particles"></div>
             <div class="flex-center animated1" id="welcome">
@@ -336,15 +313,15 @@
                 <h1 class="header1"> Why should you care </h1>
                 <div class="slide-in animated3">
                     <img id="image-care" src="icons/data.svg" alt="graph">
-                    <p class="paragraph">While an organisation’s website might not ask you to input any health data into it, even the information that someone is seeking help about a specific topic can be harmful information in the wrong hands. For example, by using third-party services on a website, you can’t always know what you’re consenting to. While the terms of service might be privacy friendly at the time of enabling these services, they are subject to change and require monitoring.</p> 
+                    <p class="paragraph">While an organisation’s website might not ask you to input any health data into it, even the information that someone is seeking help about a specific topic can be harmful information in the wrong hands.<br><br> For example, by using third-party services on a website, you can’t always know what you’re consenting to. While the terms of service might be privacy friendly at the time of enabling these services, they are subject to change and require monitoring.</p> 
                 </div>
                 <div class="slide-in animated4">
-                    <p class="paragraph">If careless data protection is detected on a website, the Dutch Data Protection Authority can fine an organisation of a maximum of 20 million euros or 4 per cent of the annual turnover of the company. For example, <a href="https://autoriteitpersoonsgegevens.nl/nl/nieuws/ap-boete-orthodontiepraktijk-vanwege-onbeveiligde-patientenwebsite">in June 2021, an orthodontic practice was fined 12,000 euros</a>. The practice had users register on a website that was not secured, exposing private information like BSNs to a potential leak. </p>
+                    <p class="paragraph">If careless data protection is detected on a website, the Dutch Data Protection Authority can fine an organisation of a maximum of 20 million euros or 4 per cent of the annual turnover of the company. <br><br>For example, <a href="https://autoriteitpersoonsgegevens.nl/nl/nieuws/ap-boete-orthodontiepraktijk-vanwege-onbeveiligde-patientenwebsite">in June 2021, an orthodontic practice was fined 12,000 euros</a>. The practice had users register on a website that was not secured, exposing private information like BSNs to a potential leak. </p>
                     <img id="image-care" src='icons/money.svg' alt="graph">
                 </div>
                 <div class="slide-in animated3">
                     <img id="image-care" src="icons/privacy.svg" alt='graph'>
-                    <p class="paragraph">rivacy policies are important because they inform you of how companies and organizations collect, use, and protect your personal information, allowing you to make informed decisions about sharing it. By understanding a privacy policy, you can ensure that your personal information is being handled appropriately and securely, as well as learn about your rights when it comes to your data, such as your right to access, update, and delete it. Privacy policies can also help you avoid unwanted marketing messages, as they often detail how companies use personal information for targeted advertising. Additionally, privacy policies can ensure that companies are complying with regulations and privacy standards that protect your privacy rights. Overall, reading and understanding privacy policies is an important tool for protecting your personal information and making informed decisions about how you share it with companies and organizations.</p>
+                    <p class="paragraph">Privacy policies are important because they inform you of how companies and organizations collect, use, and protect your personal information, allowing you to make informed decisions about sharing it. By understanding a privacy policy, you can ensure that your personal information is being handled appropriately and securely, as well as learn about your rights when it comes to your data, such as your right to access, update, and delete it.<br><br>Privacy policies can also help you avoid unwanted marketing messages, as they often detail how companies use personal information for targeted advertising. Additionally, privacy policies can ensure that companies are complying with regulations and privacy standards that protect your privacy rights. Overall, reading and understanding privacy policies is an important tool for protecting your personal information and making informed decisions about how you share it with companies and organizations.</p>
                 </div>
             </div>
             <div class="flex-column" id="introduction">
@@ -363,42 +340,42 @@
             <div class="flex-column knowledge scroll2" id="EU">
                 <h1 class="header1">EU privacy Laws</h1>
                 <div class="flex-row animated4">
-                <p class="paragraph">The General Data Protection Regulation (GDPR) is a privacy and security law in EU legislation with the purpose of protecting an individual’s data and privacy within the EU and European Economic Area (EEA). It was passed by the EU  as to impose obligations onto organisations that aim to target or collect data related to EU citizens. It was first put into effect on May 25, 2018.  The GDPR’s main aim is to maximise an individual’s control over their personal and sensible information, while also simplifying the regulatory environment for international business. Ignoring GDPR regulation can result fines of up to million euros, or up to 4% of the organisation’s worldwide turnover fo the previous financial year, whichever is greater. For less severe violations, fines of up to 10 million euros, or 2% of the company’s revenue (if higher) can be applied. The fines must be proportionate and effective for each particular case.</p>
+                <p class="paragraph">The General Data Protection Regulation (GDPR) is a privacy and security law in EU legislation with the purpose of protecting an individual’s data and privacy within the EU and European Economic Area (EEA). It was passed by the EU  as to impose obligations onto organisations that aim to target or collect data related to EU citizens. It was first put into effect on May 25, 2018.  The GDPR’s main aim is to maximise an individual’s control over their personal and sensible information, while also simplifying the regulatory environment for international business. <br> <br>Ignoring GDPR regulation can result fines of up to million euros, or up to 4% of the organisation’s worldwide turnover fo the previous financial year, whichever is greater. For less severe violations, fines of up to 10 million euros, or 2% of the company’s revenue (if higher) can be applied. The fines must be proportionate and effective for each particular case.</p>
                 <image class="knowledge-image" id="EU-image" src="icons/gdpr.svg"></image>
                 </div>
             </div>
             <div class="flex-column knowledge scroll3" id="Privacy-image">
                 <h1 class="header1">Privacy Policy</h1>
                 <div class="flex-row animated3">
-                <p class="paragraph ">Under the GDPR, every website needs to have a privacy policy easily findable on their website. A privacy policy might be even required under the terms of service of third party trackers, such as Google Analytics (link). There are numerous privacy policy templates available online, but many of them fail to meet the GDPR requirements of clear and plain language. The typical placement of a link to a privacy policy is in the footer at the bottom of the page. By following this convention, your users can find it easily.</p>
+                <p class="paragraph ">Under the GDPR, every website needs to have a privacy policy easily findable on their website. A privacy policy might be even required under the terms of service of third party trackers, such as Google Analytics (link).<br><br> There are numerous privacy policy templates available online, but many of them fail to meet the GDPR requirements of clear and plain language.The typical placement of a link to a privacy policy is in the footer at the bottom of the page. By following this convention, your users can find it easily.</p>
                 <image class="knowledge-image" id="Privacy-image" src="icons/privacy.svg"></image>
                 </div>
             </div>
             <div class="flex-column knowledge scroll4" id="Cookies">
                 <h1 class="header1">Cookies</h1>
                 <div class="flex-row animated4">
-                <p class="paragraph ">Dark patterns are manipulative design tactics used by websites and apps to deceive users into taking actions they would not take otherwise. One area where dark patterns are commonly used is in the context of cookies, which are small text files that websites use to track user behavior and preferences. Some websites use dark patterns to trick users into accepting cookies or giving away their personal data without realizing it. For example, they may present a confusing or misleading message about cookies that makes it seem like users have no choice but to accept them, or bury cookie settings in a hard-to-find place on the website. By using these unethical tactics, websites and apps can violate users' privacy and undermine their ability to control how their data is used.</p>
+                <p class="paragraph ">Dark patterns are manipulative design tactics used by websites and apps to deceive users into taking actions they would not take otherwise. One area where dark patterns are commonly used is in the context of cookies, which are small text files that websites use to track user behavior and preferences. Some websites use dark patterns to trick users into accepting cookies or giving away their personal data without realizing it.<br><br>For example, they may present a confusing or misleading message about cookies that makes it seem like users have no choice but to accept them, or bury cookie settings in a hard-to-find place on the website. By using these unethical tactics, websites and apps can violate users' privacy and undermine their ability to control how their data is used.</p>
                 <image class="knowledge-image" id="Cookies-image" src="icons/cookies.svg"></image>
                 </div>
             </div>
             <div class="flex-column knowledge scroll5" id="Forms">
                 <h1 class="header1">Forms</h1>
                 <div class="flex-row animated3">
-                <p class="paragraph">Forms on the internet, such as newsletters, surveys, and contact forms, can pose significant risks to users' data. When filling out a form, users may be required to provide personal information such as their name, email address, phone number, and in some extreme cases, even sensitive information like their BSN number. This information can be vulnerable to data breaches, cyber-attacks, and unauthorized access by third-party. In some cases, forms may also track users' web behaviour and preferences, which can be used for targeted advertising or sold to data brokers. It's important for users to exercise caution when submitting personal information through online forms and to be aware of the privacy policies of the websites they interact with.</p>
+                <p class="paragraph">Forms on the internet, such as newsletters, surveys, and contact forms, can pose significant risks to users' data. When filling out a form, users may be required to provide personal information such as their name, email address, phone number, and in some extreme cases, even sensitive information like their BSN number. This information can be vulnerable to data breaches, cyber-attacks, and unauthorized access by third-party. <br><br>In some cases, forms may also track users' web behaviour and preferences, which can be used for targeted advertising or sold to data brokers. It's important for users to exercise caution when submitting personal information through online forms and to be aware of the privacy policies of the websites they interact with.</p>
                 <image class="knowledge-image" id="Forms-image" src="icons/forms.svg"></image>
                 </div>
             </div>
             <div class="flex-column knowledge scroll6" id="GA">
                 <h1 class="header1">Google Analytics</h1>
                 <div class="flex-row animated4">
-                <p class="paragraph">Google analytics is a web analytics service by Google. It helps website owners analyse user traffic within their websites. It is an effective tool as it allows website owners to identify trends, and measure the effectiveness of their marketing strategies, in order to optimise the website for an overall better performance. Multiple privacy concerns have been raised regarding Google Analytics. Due to the very nature of the software, it collects sensible information such as geolocation, and browser and device information, which is obtained through the usage of website tracking and cookies . Moreover, third-party cookies can be extremely intrusive when it comes to personally identifiable information in the website such as user detail, IP address, and preferred payment methods, just to name a few. Some of these details often end up being used by third party advertisers, which allows them to use targeted advertising without the users knowledge or consent. Regulations, such as the General Data Protection Regulation or GDPR emerged as a way of responding against these kind of reckless data tracking. As such, when using Google Analytics, it is required to disclose: How it is being used and how it collects and processes data.</p>
+                <p class="paragraph">Google analytics is a web analytics service by Google. It helps website owners analyse user traffic within their websites. It is an effective tool as it allows website owners to identify trends, and measure the effectiveness of their marketing strategies, in order to optimise the website for an overall better performance. Multiple privacy concerns have been raised regarding Google Analytics. Due to the very nature of the software, it collects sensible information such as geolocation, and browser and device information, which is obtained through the usage of website tracking and cookies .<br><br> Moreover, third-party cookies can be extremely intrusive when it comes to personally identifiable information in the website such as user detail, IP address, and preferred payment methods, just to name a few. Some of these details often end up being used by third party advertisers, which allows them to use targeted advertising without the users knowledge or consent. Regulations, such as the General Data Protection Regulation or GDPR emerged as a way of responding against these kind of reckless data tracking. As such, when using Google Analytics, it is required to disclose: How it is being used and how it collects and processes data.</p>
                 <image class="knowledge-image" id="GA-image" src="icons/ga4.svg"></image>
                 </div>
             </div>
             <div class="flex-column knowledge scroll7" id="Breaches">
                 <h1 class="header1">Data Breaches</h1>
                 <div class="flex-row animated3">
-                <p class="paragraph">In case of a data security breach in the Netherlands, it is important to take immediate action to minimize the damage and comply with legal requirements. The first step is to contain the breach and investigate the extent of the damage. The Dutch Data Protection Authority should also be notified as soon as possible, as the organization is responsible for enforcing the General Data Protection Regulation (GDPR) in the Netherlands. Depending on the nature and severity of the breach, affected individuals may also need to be notified. It is essential to take all necessary measures to prevent future breaches, including updating security protocols and training staff on data protection best practices.</p>
+                <p class="paragraph">In case of a data security breach in the Netherlands, it is important to take immediate action to minimize the damage and comply with legal requirements. The first step is to contain the breach and investigate the extent of the damage. The Dutch Data Protection Authority should also be notified as soon as possible, as the organization is responsible for enforcing the General Data Protection Regulation (GDPR) in the Netherlands.<br><br> Depending on the nature and severity of the breach, affected individuals may also need to be notified. It is essential to take all necessary measures to prevent future breaches, including updating security protocols and training staff on data protection best practices.</p>
                 <image class="knowledge-image" id="Breaches-image" src="icons/data.svg"></image>
                 </div>
             </div>
