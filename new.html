@@ -82,11 +82,13 @@
             font-weight: 400;
             cursor: pointer;
             font-family: 'Work Sans', sans-serif;
+            transition: all 0.25s ease-in-out;
         }
         button:hover {
-            background-color: #e0e0e0;
+            background-color: transparent;
             color: #333;
-            border: 3px solid #333;
+            box-shadow: inset 0 0 0 2px #333;
+            transform: scale(1.1);
         }
         .nav-bar {
             position: -webkit-sticky;
@@ -122,18 +124,28 @@
             width: 80vw;
             height: 5px;
         }
+        #introduction h1 {
+            font-size: 3em;
+            margin: 0.1em;
+        }
         #introduction h3 {
+            font-size: 2em;
             margin-bottom: 1em;
             font-weight: 500;
         }
-        #introduction p{
-            font-size: 1.5em;
+        #introduction p {
+            font-size: 1.375em;
             font-weight: 400;
             margin-bottom: 1em;
-            width: 70%;
+            width: 85%;
+            text-align: justify;
+        }
+        #iq {
+            padding: 0.8em 0.8em;
+            box-shadow: inset 0 0 0 2px #333;
         }
         #introduction button {
-            font-size: 3em;
+            font-size: 2em;
             font-weight: 400;
             padding: 0.3em 1em;
             border-radius: 30px;
@@ -145,8 +157,51 @@
             flex-direction: column;
             text-align: center;
         }
-        #conclusion {
+        #g {
+            gap: 2em;
+        }
+        #graphs {
             background-color: #e0e0e0;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5em;
+        }
+        #graph-line {
+            background-color: #333;
+            width: 90vw;
+            height: 1px;
+        }
+        #graphs img{
+            border: 1px solid #333;
+            border-radius: 25px;
+        }
+        #graph-description {
+            flex-direction: column;
+            width: 40%;
+        }
+        #intro-learning {
+            background-color: #333;
+            color: #e0e0e0;
+            flex-direction: column;
+        }
+        #intro-learning h1 {
+            font-size: 6em;
+            margin: 0.1em;
+        }
+        #intro-learning button {
+            font-size: 2em;
+            font-weight: 400;
+            padding: 0.3em 1em;
+            border-radius: 30px;
+            margin-top: 1em;
+            background-color: #e0e0e0;
+            color: #333;
+        }
+        #intro-learning button:hover {
+            background-color: #333;
+            color: #e0e0e0;
+            box-shadow: inset 0 0 0 2px #e0e0e0;
+            transform: scale(1.1);
         }
         .quiz-main {
             padding: 0.8em 0.8em;
@@ -156,6 +211,57 @@
             right: 2%;
             bottom: 2%;
             position: absolute;
+        }
+        #learning {
+            background-color: #333;
+            flex-direction: column;
+            align-items: left;
+            gap: 2.5em;
+        }
+        .container {
+            width: 80vw;
+            height: fit-content;
+            padding: 2em 2em;
+            background-color: #e0e0e0;
+            border-radius: 25px;
+            box-shadow: 0 0 10px #e0e0e0;
+            transition: all 0.35s ease-in-out;
+            color: #333;
+        }
+        .container:hover {
+            box-shadow: 0 0 10px #e0e0e0;
+            background-color: transparent;
+            transform: scale(1.05);
+            color: #e0e0e0;
+        }
+        #module {
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5em;
+        }
+        #module-text {
+            width: 95%;
+            text-align: justify;
+            flex-direction: column;
+        }
+        #module-text h1 {
+            font-size: 3em;
+            margin: 0.1em;
+        }
+        #module-text h3 {
+            font-size: 2em;
+            margin-bottom: 1em;
+            font-weight: 500;
+        }
+        #module-text p{
+            font-size: 1.375em;
+            font-weight: 400;
+            margin-bottom: 1em;
+            width: 95%;
+            text-align: justify;
+            padding : 1em 1em;
+            border: 1px solid #333;
+            border-radius: 25px;
         }
     </style>
     <script>
@@ -185,7 +291,7 @@
 <body>
     <div id="particles"></div>
     <section class="center" id="home">
-    <h1 class="animate__animated animate__zoomInRight">Coffeebreak Crash Course on Website Privacy   </h1>
+    <h1 class="animate__animated animate__zoomInRight">Coffeebreak Crash Course on Website Privacy</h1>
     <p class="animate__animated animate__zoomInLeft">By OpenKITTY</p>
     <button onclick="scrollToView(1)" class="animate__animated animate__zoomInUp">Start exploring</button>
     <div class="quiz-main">Evaluate your website</div>
@@ -194,8 +300,8 @@
         <ul>
             <li onclick="scrollToView(1)">Introduction</li>
             <li onclick="scrollToView(2)">Data</li>
-            <li onclick="scrollToView(3)">Material</li>
-            <li onclick="scrollToView(4)">Quiz</li>
+            <li onclick="scrollToView(4)">Crash Course</li>
+            <li onclick="scrollToView(6)">Quiz</li>
             <li onclick="window.">About Us</li>
         </ul>
     </div>
@@ -203,21 +309,97 @@
         <h1>For Whom?</h1>
         <div id="intro-line"></div>
         <h3>Management Staff</h3>
-        <p></p>
+        <p>We have tailored this website to the basic knowledge needs of healthcare providers in regards to Data Privacy. If you are a part of the management staff or a website administrator(but not only), feel free to grab a coffee and let us present you with some quite useful knowledge!</p>
         <h1>What?</h1>
         <div id="intro-line"></div>
-        <h3>Website</h3>
-        <p>Do you know what to do in case of a data breach of your website?</p>
-        <p>Do you know what are the GDPR requirements regarding cookies on your website?</p>
+        <h3>A Website</h3>
+        <p id="iq">Do you know what to do in case of a data breach of your website?</p>
+        <p id="iq">Do you know what are the GDPR requirements regarding cookies on your website?</p>
         <p>We prepared a Crash Course of knowledge in the range of Cybersecurity and Data Privacy. On this website you will learn about topics ranging from EU Privacy Laws to what to do in case of a Data Breach. Specially selected materials will briefly describe the issue, while also granting you resources to dive deeper into the topic to make sure your security of users data is of the highest standard.</p>
-        <p></p>
-        <button onclick="scrollToView(2)">Why it matters</button>
+        <button onclick="scrollToView(2)">Why does it matter?</button>
     </section>
     <section class="center" id="data">
         <h1>Current State of the Industry</h1>
+        <p>We have carefully researched websites of 100 health providers and have discovered the lack of regulatory compliance on many of them. </p>
     </section>
-    <section>
+    <section CLASS="center" id="graphs">
+        <div class="center" id="g">
+            <div class="center" id="graph-description">
+                <h3>Cookies</h3>
+                <p>Out of these 100 websites, 49% of them did not ask for user's permission for gathering cookies.</p>
+            </div>
+            <img src="graphs/cookies.svg">
+        </div>
+        <div id="graph-line"></div>
+        <div class="center" id="g">
+            <img src="graphs/policy.svg">
+            <div class="center" id="graph-description">
+                <h3>Privacy Policy</h3>
+                <p>30% of the researched websites did not have an easily accesible privacy policy, some of them did not have one at all.</p>
+            </div>
+        </div>
+        <div id="graph-line"></div>
+        <div class="center" id="g">
+            <div class="center" id="graph-description">
+                <h3>Trackers</h3>
+                <p>Shockingly, only 4% out of these 100 website did NOT have trackers on them, being a direct threat to patients' data security.</p>
+            </div>
+            <img src="graphs/trackers.svg">
+        </div>
+    </section>
+    <section class="center" id="intro-learning">
+        <h1>Crash Course</h1>
+        <button onclick="scrollToView(5)">Start learning</button>
+    </section>
+    <seciton class="center" id="learning">
+        <div class="container" id="l">
+            <div class="center" id="module">
+                <div class="center" id="module-text">
+                    <h1>GDPR</h1>
+                    <h3>You should know basics of GDPR</h3>
+                    <p><b>Why it matters</b>: Ignoring GDPR regulation can result to fines of up to million euros, or up to 4% of the organisation’s turnover for the previous financial year, whichever is greater. A lot of privacy requirements are based around GDPR.</p>
+                    <p><b>The background</b>: The General Data Protection Regulation (GDPR) is a privacy and security law in with the purpose of protecting an individual’s data and privacy within the EU and the EEA. The GDPR’s main aim is to maximise an individual’s control over their personal and sensible information, while also simplifying the regulatory environment for international business.</p>
+                    <p><b>In practice</b>: ADD TEXT</p>
+                    <h3>Is your privacy policy sufficient?</h3>
+                    <p>Why it matters: A clear privacy policy that is easy to find is a requirement under the GDPR.</p>
+                    <p><b>In practice</b>:</p>
+                    <ul>
+                        <li>There are numerous privacy policy templates available online, but many of them fail to meet the GDPR requirements of clear and plain language.</li>
+                        <li>The typical placement of a link to a privacy policy is in the footer at the bottom of the page. By following this convention, your users can find it easily.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="l">
+            <div class="center">
 
-    </section>
+            </div>
+        </div>
+        <div class="container" id="l">
+            <div class="center">
+
+            </div>
+        </div>
+        <div class="container" id="l">
+            <div class="center">
+
+            </div>
+        </div>
+        <div class="container" id="l">
+            <div class="center">
+
+            </div>
+        </div>
+        <div class="container" id="l">
+            <div class="center">
+
+            </div>
+        </div>
+        <div class="container" id="l">
+            <div class="center">
+
+            </div>
+        </div>
+    </seciton>
 </body>
 </html>
