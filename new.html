@@ -320,13 +320,13 @@
     </section>
     <section class="center" id="data">
         <h1>Current State of the Industry</h1>
-        <p>We have carefully researched websites of 100 health providers and have discovered the lack of regulatory compliance on many of them. </p>
+        <p>We looked into websites of 50 health providers. Many of them aren't privacy aware. </p>
     </section>
     <section CLASS="center" id="graphs">
         <div class="center" id="g">
             <div class="center" id="graph-description">
                 <h3>Cookies</h3>
-                <p>Out of these 100 websites, 49% of them did not ask for user's permission for gathering cookies.</p>
+                <p>Out of these 50 websites, 49% of them did not ask for user's permission for storing cookies.</p>
             </div>
             <img src="graphs/cookies.svg">
         </div>
@@ -335,31 +335,34 @@
             <img src="graphs/policy.svg">
             <div class="center" id="graph-description">
                 <h3>Privacy Policy</h3>
-                <p>30% of the researched websites did not have an easily accesible privacy policy, some of them did not have one at all.</p>
+                <p>30% of the websites did not have an easily accesible privacy policy, some of them did not have one at all.</p>
             </div>
         </div>
         <div id="graph-line"></div>
         <div class="center" id="g">
             <div class="center" id="graph-description">
                 <h3>Trackers</h3>
-                <p>Shockingly, only 4% out of these 100 website did NOT have trackers on them, being a direct threat to patients' data security.</p>
+                <p>Almost all of the websites used third-party applications.</p>
             </div>
             <img src="graphs/trackers.svg">
         </div>
     </section>
     <section class="center" id="intro-learning">
         <h1>Crash Course</h1>
+        <h2>Learn the basics in 5 minutes or less</h2>
         <button onclick="scrollToView(5)">Start learning</button>
     </section>
-    <seciton class="center" id="learning">
+    <section class="center" id="learning">
         <div class="container" id="l">
             <div class="center" id="module">
                 <div class="center" id="module-text">
-                    <h1>GDPR</h1>
-                    <h3>You should know basics of GDPR</h3>
+                    <h3> Learn the basics of GDPR</h3>
                     <p><b>Why it matters</b>: Ignoring GDPR regulation can result to fines of up to million euros, or up to 4% of the organisation’s turnover for the previous financial year, whichever is greater. A lot of privacy requirements are based around GDPR.</p>
-                    <p><b>The background</b>: The General Data Protection Regulation (GDPR) is a privacy and security law in with the purpose of protecting an individual’s data and privacy within the EU and the EEA. The GDPR’s main aim is to maximise an individual’s control over their personal and sensible information, while also simplifying the regulatory environment for international business.</p>
-                    <p><b>In practice</b>: ADD TEXT</p>
+                    <p><b>The background</b>: The General Data Protection Regulation (GDPR) is a privacy and security law in with the purpose of protecting data and privacy within the EU and the EEA. </p>
+                    <ul>
+                        <li>The GDPR’s main aim is to maximise an individual’s control over their personal and sensible information, while also simplifying the regulatory environment for international business.</li>
+                    </ul>
+                    <p><b>In practice</b>: In the upcoming sections, you will get a quick rundown of some of the basic requirements of GDPR.</p>
                     <h3>Is your privacy policy sufficient?</h3>
                     <p>Why it matters: A clear privacy policy that is easy to find is a requirement under the GDPR.</p>
                     <p><b>In practice</b>:</p>
@@ -371,18 +374,39 @@
             </div>
         </div>
         <div class="container" id="l">
-            <div class="center">
-
+            <div class="center" id="module">
+                <div class="center" id="module-text">
+                <h3>Ask consent for cookies</h3>
+                <p><b>Why it matters</b>:If your website does not ask its user for consent on cookies, it’s most likely not GDPR compliant. By having clear cookie options, you are telling the user that you care about their data privacy. </p>
+                <p><b>The background</b>: Cookies are small text files that websites use to track user behaviour and preferences. For example, to prevent the user having to log in on every page, the computer stores a cookie that the user is logged in for easy navigation. Cookies can also be from third parties, like social media plugins or Google’s services. </p>
+                <ul>
+                    <li>Under GDPR, all third-party and most first-party cookies require consent.</li>
+                    <li>It is common to hide the cookie options under settings and nudge the user to allow all cookies with colors and positioning of buttons. These are dark patterns and should be avoided.</li>
+                </ul>
+                <p><b>In practice</b>: When user enters the website, there should be a cookie prompt to ask if the user consents for the use of statistical or advertising cookies. It is a good practice to present cookie options equally, in the same menu and same color. </p>
+                </div>
             </div>
         </div>
         <div class="container" id="l">
-            <div class="center">
-
+            <div class="center" id="module">
+                <div class="center" id="module-text">
+                <h3>Be careful with forms</h3>
+                <p><b>Why it matters</b>: Forms are vulnerable to data breaches, cyber-attacks, and unauthorized access by third-party. Some forms also sell data to data brokers.</p>
+                <p><b>In practice</b>: Forms should only ask for information that is strictly necessary and avoid sensitive data such as BSNs. Only create a form with a reliable provider.</p>
+                </div>
             </div>
         </div>
         <div class="container" id="l">
-            <div class="center">
-
+            <div class="center" id="module">
+                <div class="center" id="module-text">
+                    <h3>Reconsider using Google Analytics</h3>
+                    <p><b>Why it matters</b>: Multiple privacy concerns have been raised regarding performance metrics like Google Analytics. </p>
+                    <p><b>The background</b>: While tools like Google Analytics can help to identify trends, and measure the effectiveness of marketing strategies, they can pose threats to privacy. These analysis services collect sensible information such as geolocation and device information. </p>
+                    <ul>
+                        <li>Third-parties can be intrusive when it comes to personally identifiable information.  The data can end up being used by advertisers, which allows them to use targeted advertising without the user’s knowledge or consent. </li>
+                    </ul>
+                    <p><b>In practice</b>: Avoid using Google Analytics. If you still choose to use it, adjust the settings to be as privacy aware as possible. </p>
+                </div>
             </div>
         </div>
         <div class="container" id="l">
