@@ -219,25 +219,28 @@
             gap: 2.5em;
         }
         .container {
-            width: 80vw;
+            width: 75vw;
             height: fit-content;
             padding: 2em 2em;
             background-color: #e0e0e0;
-            border-radius: 25px;
+            border-radius: 0px;
             box-shadow: 0 0 10px #e0e0e0;
             transition: all 0.35s ease-in-out;
             color: #333;
         }
         .container:hover {
             box-shadow: 0 0 10px #e0e0e0;
-            background-color: transparent;
             transform: scale(1.05);
-            color: #e0e0e0;
         }
         #module {
             flex-direction: column;
             align-items: center;
             gap: 2.5em;
+        }
+        #module-line {
+            background-color: #333;
+            width: 65vw;
+            height: 2px;
         }
         #module-text {
             width: 95%;
@@ -250,7 +253,7 @@
         }
         #module-text h3 {
             font-size: 2em;
-            margin-bottom: 1em;
+            margin-bottom: 0.25em;
             font-weight: 500;
         }
         #module-text p{
@@ -259,9 +262,7 @@
             margin-bottom: 1em;
             width: 95%;
             text-align: justify;
-            padding : 1em 1em;
-            border: 1px solid #333;
-            border-radius: 25px;
+            padding: 1em 0.5em;
         }
     </style>
     <script>
@@ -354,13 +355,15 @@
     <seciton class="center" id="learning">
         <div class="container" id="l">
             <div class="center" id="module">
-                <div class="center" id="module-text">
+                <div class id="module-text">
                     <h1>GDPR</h1>
                     <h3>You should know basics of GDPR</h3>
+                    <div id="module-line"></div>
                     <p><b>Why it matters</b>: Ignoring GDPR regulation can result to fines of up to million euros, or up to 4% of the organisation’s turnover for the previous financial year, whichever is greater. A lot of privacy requirements are based around GDPR.</p>
                     <p><b>The background</b>: The General Data Protection Regulation (GDPR) is a privacy and security law in with the purpose of protecting an individual’s data and privacy within the EU and the EEA. The GDPR’s main aim is to maximise an individual’s control over their personal and sensible information, while also simplifying the regulatory environment for international business.</p>
                     <p><b>In practice</b>: ADD TEXT</p>
                     <h3>Is your privacy policy sufficient?</h3>
+                    <div id="module-line"></div>
                     <p>Why it matters: A clear privacy policy that is easy to find is a requirement under the GDPR.</p>
                     <p><b>In practice</b>:</p>
                     <ul>
