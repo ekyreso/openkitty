@@ -1,3 +1,6 @@
+{% extends "layout.html" %}
+
+{% block body %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +23,7 @@
         }
         body {
             font-family: 'Work Sans', sans-serif;
-            font-size: 16px;
+            font-size: 1.2em;
             line-height: 1.5;
             color: #333;
         }
@@ -116,6 +119,26 @@
         }
         .nav-bar li:hover {
             color: #e0e0e0;
+        }
+        #Top {
+        display: block;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        background-color: #e0e0e0;
+        color: #333;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 30px;
+        font-size: 1em;
+        box-shadow: inset 0 0 0 2px #333;
+        }
+        #Top:hover {
+        background-color: #e0e0e0;
+        color: #333;
+        box-shadow: inset 0 0 0 2px #333;
+        transform: scale(1.1);
         }
         #introduction {
             background-color: #e0e0e0;
@@ -271,7 +294,7 @@
             padding: 0 3em 0;
         }
         #mm {
-            padding: 1em, 1em;
+            padding: 1em 1em;
         }
         #quiz-intro {
             flex-direction: column;
@@ -279,9 +302,67 @@
             background-color: #e0e0e0;
             gap: 1em;
         }
+        #quiz {
+            background-color: #e0e0e0;
+        }
         #quiz-intro h1 {
             font-size: 5em;
             margin: 0.1em;
+        }
+        #about {
+            background-color: #333;
+        }
+        #about-line {
+            background-color: #e0e0e0;
+            width: 80vw;
+            height: 5px;
+        }
+        #about h1 {
+            font-size: 3em;
+            margin: 0.1em;
+            color: #e0e0e0;
+        }
+        #about p {
+            font-size: 1.375em;
+            font-weight: 400;
+            width: 85%;
+            text-align: justify;
+            color: #e0e0e0;
+        }
+    @media (max-width: 800px) {
+        .nav-bar {
+            float: none;
+            font-size: 10px;
+        }
+        #g.center {
+            flex-direction: column;
+        }
+        img {
+            max-width: 100%;
+        }
+        }
+        #quiz-questions {
+            flex-direction: column;
+            align-items: center;
+            gap: 1em;
+        }
+        .containerq {
+            width: 75vw;
+            height: fit-content;
+            padding: 1.25em 1.25em;
+            background-color: #333;
+            border-radius: 0px;
+            box-shadow: 0 0 10px #e0e0e0;
+            transition: all 0.35s ease-in-out;
+            color: #e0e0e0;
+            font-weight: 400;
+            font-size: 1.2em;
+        }
+        .containerq:hover {
+            box-shadow: 0 0 10px #e0e0e0;
+            transform: scale(1.05);
+            background-color: #0c0c0c;
+            color: #e0e0e0;
         }
     </style>
     <script>
@@ -315,7 +396,7 @@
     <p class="animate__animated animate__zoomInLeft">By OpenKITTY</p>
     <button onclick="scrollToView(1)" class="animate__animated animate__zoomInUp">Start exploring</button>
     <button onclick="scrollToView(6)" class="animate__animated animate__zoomInUp">Test your website</button>
-    <!-- <div class="quiz-main">Evaluate your website</div>--->
+    <div class="quiz-main">Evaluate your website</div>
     </section>
     <div class="nav-bar">
         <ul>
@@ -323,10 +404,12 @@
             <li onclick="scrollToView(2)">Data</li>
             <li onclick="scrollToView(4)">Crash Course</li>
             <li onclick="scrollToView(6)">Quiz</li>
-            <li onclick="window">About Us</li>
+            <li onclick="scrollToView(7)">About Us</li>
         </ul>
     </div>
-    <section id="introduction">
+    <!-- <button onclick="scrollToView(0)" id="Top" title="Go to top">Top</button> -->
+    <button onclick="window.location.href='https://uva.fra1.qualtrics.com/jfe/form/SV_82guP1wi42tGCLc'" id="Top" title="Go to top">Give feedback!</button>
+    <!-- <section id="introduction">
         <h1>For Whom?</h1>
         <div id="intro-line"></div>
         <h3>Management Staff</h3>
@@ -339,7 +422,7 @@
         <p>We prepared a Crash Course of knowledge in the range of Cybersecurity and Data Privacy. On this website you will learn about topics ranging from EU Privacy Laws to what to do in case of a Data Breach. Specially selected materials will briefly describe the issue, while also granting you resources to dive deeper into the topic to make sure your security of users data is of the highest standard.</p>
         <button onclick="scrollToView(2)">Why does it matter?</button>
         <button onclick="scrollToView(4)">Take me to the course</button>
-    </section>
+    </section> -->
     <section class="center" id="data">
         <h1>Current State of the Industry</h1>
         <p>We looked into websites of 50 health providers. Many of them aren't privacy aware. </p>
@@ -350,11 +433,11 @@
                 <h3>Cookies</h3>
                 <p>Out of these 50 websites, 49% of them did not ask for user's permission for storing cookies.</p>
             </div>
-            <img src="graphs/cookies.svg">
+            <img src="/static/graphs/">
         </div>
         <div id="graph-line"></div>
         <div class="center" id="g">
-            <img src="graphs/policy.svg">
+            <img src="/static/graphs/policy.svg">
             <div class="center" id="graph-description">
                 <h3>Privacy Policy</h3>
                 <p>30% of the websites did not have an easily accesible privacy policy, some of them did not have one at all.</p>
@@ -366,7 +449,7 @@
                 <h3>Trackers</h3>
                 <p>Almost all of the websites used third-party applications.</p>
             </div>
-            <img src="graphs/trackers.svg">
+            <img src="/static/graphs/trackers.svg">
         </div>
     </section>
     <section class="center" id="intro-learning">
@@ -449,11 +532,60 @@
                 </div>
             </div>
         </div>
+        <div class="container" id="l">
+            <div class="center" id="module">
+                <div class="center" id="module-text">
+                    <h3>Avoid using Google Fonts for font-hosting</h3>
+                    <div id="module-line"></div>
+                    <p id="mm"><b>Why it matters</b>: Google Fonts stores personal data, like IP addresses, to display fonts. </p>
+                    <div id="module-line"></div>
+                    <p><b>The background</b>: While websites usually do not ask if the user consents to Google Fonts, they should. IP addresses are personal data and require consent to be collected.  </p>
+                    <ul>
+                        <li>In Germany, court ruled that Google Fonts is not compliant with GDPR.  </li>
+                    </ul>
+                    <p><b>In practice</b>: Consider other alternatives to Google Fonts, like self-hosting fonts. </p>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="l">
+            <div class="center" id="module">
+                <div class="center" id="module-text">
+                    <h3>Alternative tools</h3>
+                    <div id="module-line"></div>
+                    <p id="mm"><b>Website analytics</b>: Simple Analytics </p>
+                    <div id="module-line"></div>
+                    <p><b>Pros</b>: Doesn’t collect even anonymised data from your website visitors. Fast loading time. Based in the Netherlands. Easy installation guide.</p>
+                    <p><b>Cons</b>: Paid. Very simplified.</p>
+                    <div id="module-line"></div>
+                    <p id="mm"><b> Font-hosting</b>: Host font files locally </p>
+                    <div id="module-line"></div>
+                    <p><b>Pros</b>: Privacy-friendly. No reliance on third parties.</p>
+                    <p><b>Cons</b>: Requires some knowledge to set up. Requires testing to see if fonts are visible with all browsers.</p>
+                    <div id="module-line"></div>
+                    <p id="mm"><b>Additional resources</b>: OpenKat - vulnerability analysis tool for complex systems </p>
+                    <div id="module-line"></div>
+                    <p><b>Pros</b>: Open source. Constantly developing new features. Privacy-first approach.</p>
+                    <p><b>Cons</b>: Requires technical knowledge to set up.</p>
+                </div>
+            </div>
+        </div>
     </section>
     <section class="center" id="quiz-intro">
         <h1>Quiz</h1>
         <p>Check your website and apply knowledge you have just read about</p>
-        <button onclick="scrollToView(6)">Start quiz</button>
+        <p>Green colour marks the answers that fit the regulations</p>
+        <button onclick="scrollToView(7)">Start quiz</button>
+    </section>
+    <section class="center" id="quiz">
+        {% include 'quiz.html' %}
+    </section>
+    <section id="about">
+        <h1>About us</h1>
+        <div id="about-line"></div>
+        <br>
+        <p>The Coffeebreak Crash Course on Website Privacy is the work of three students from Computational Social Science of University of Amsterdam, with the mission to promote a privacy-aware world. We hope to provide easy to understand and practical information on privacy issues related to websites, and we wish this serves as an inspiration to carry more private practices everywhere. <br><br>
+            The project started with a challenge from Sigra, a partnership of healthcare organisations in North Holland, and OpenKat, a vulnerability analysis tool for networks developed under the Dutch Ministry of Health. The goal was to develop a digital intervention to increase privacy practices within the healthcare industry in the region.</p>
     </section>
 </body>
 </html>
+{% endblock %}

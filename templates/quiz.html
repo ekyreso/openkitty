@@ -1,0 +1,137 @@
+<style>
+#quiz-questions {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+.containerq {
+    width: 75vw;
+    height: fit-content;
+    padding: 1.25em 1.25em;
+    background-color: #333;
+    border-radius: 0px;
+    box-shadow: 0 0 10px #e0e0e0;
+    transition: all 0.35s ease-in-out;
+    color: #e0e0e0;
+    font-weight: 400;
+    font-size: 1.2em;
+}
+.containerq:hover {
+    box-shadow: 0 0 10px #e0e0e0;
+    transform: scale(1.05);
+    background-color: #0c0c0c;
+    color: #e0e0e0;
+}
+</style>
+<section class="center" id="quiz">
+<form id="quiz-questions">
+    <div class="question">
+        <h2>Does your website have a privacy policy?</h2>
+        <div class="containerq"><input type="radio" name="q1" value="a" data-correct>Yes, it is located at the bottom of the page</div>
+        <div class="containerq"><input type="radio" name="q1" value="b">Yes, somewhere else</div>
+        <div class="containerq"><input type="radio" name="q1" value="c">There is no privacy policy/the link is broken</div>
+    </div>
+    <div class="question">
+        <h2>What style is the privacy policy written?</h2>
+        <div class="containerq"><input type="radio" name="q2" value="a" data-correct>It is written in simple, understandable language</div>
+        <div class="containerq"><input type="radio" name="q2" value="b">It has a lot of specialised terms and takes time to understand</div>
+        <div class="containerq"><input type="radio" name="q2" value="c">There is no privacy policy</div>
+    </div>
+    <div class="question">
+        <h2>Does your website ask the user to consent to cookies?</h2>
+        <div class="containerq"><input type="radio" name="q3" value="a" data-correct>Yes, the user can select which cookies they allow</div>
+        <div class="containerq"><input type="radio" name="q3" value="b">No, but the user is notified that the website uses cookies</div>
+        <div class="containerq"><input type="radio" name="q3" value="c">No, there is no cookie banner</div>
+    </div>
+    <div class="question">
+        <h2>How does your website ask the user to consent to cookies?</h2>
+        <div class="containerq"><input type="radio" name="q4" value="a" data-correct>The options to deny or allow cookies are presented as equals (same colour and same patterns)</div>
+        <div class="containerq"><input type="radio" name="q4" value="b">The user is nudged to consent to all cookies rather than reject them</div>
+        <div class="containerq"><input type="radio" name="q4" value="c">The user can not disallow cookies</div>
+    </div>
+    <div class="question">
+        <h2>Does the website uses third-party tracker (like Google Analytics and Hotjar)?</h2>
+        <div class="containerq"><input type="radio" name="q5" value="a" >Yes, with default settings</div>
+        <div class="containerq"><input type="radio" name="q5" value="b">Yes, but the settings are adjusted to pseudonymised (IP addresses hidden)</div>
+        <div class="containerq"><input type="radio" name="q5" value="c" data-correct>No</div>
+    </div>
+    <div class="question">
+        <h2>Does the privacy policy mention the use of a third-party tracker (like Google Analytics and Hotjar)?</h2>
+        <div class="containerq"><input type="radio" name="q6" value="a" data-correct>Yes, the use and purpose is outlined in the privacy police</div>
+        <div class="containerq"><input type="radio" name="q6" value="b">No, there is no mention or there is no privacy policy </div>
+        <div class="containerq"><input type="radio" name="q6" value="c" data-correct>No, we do not use third-party trackers</div>
+    </div>
+    <div class="question">
+        <h2>Does the website have a form?</h2>
+        <div class="containerq"><input type="radio" name="q7" value="a" data-correct>Yes, but it doesn't require personal information</div>
+        <div class="containerq"><input type="radio" name="q7" value="b">Yes, and it asks for personal information</div>
+        <div class="containerq"><input type="radio" name="q7" value="c" data-correct>No</div>
+    </div>
+    <div class="question">
+        <h2>Is the data from the form disposed properly?</h2>
+        <div class="containerq"><input type="radio" name="q8" value="a" >No, it is stored for long amounts of time for future use</div>
+        <div class="containerq"><input type="radio" name="q8" value="b" data-correct>Yes, it is periodically deleted/anonymised</div>
+        <div class="containerq"><input type="radio" name="q8" value="c" data-correct>There is no form</div>
+    </div>
+    <div class="question">
+        <h2>How many people have access to the information from the form?</h2>
+        <div class="containerq"><input type="radio" name="q9" value="a" data-correct>Only one person has access to the information</div>
+        <div class="containerq"><input type="radio" name="q9" value="b" data-correct>The information is available to selected individuals</div>
+        <div class="containerq"><input type="radio" name="q9" value="c">The information is available for everyone in my organisation</div>
+    </div>
+    <div class="question">
+        <h2>How are the fonts hosted on the website?</h2>
+        <div class="containerq"><input type="radio" name="q10" value="a">Through Google Fonts</div>
+        <div class="containerq"><input type="radio" name="q10" value="b" data-correct>Through a more privacy aware site, like bunny.net</div>
+        <div class="containerq"><input type="radio" name="q10" value="c" data-correct>The fonts are self-hosted</div>
+    </div>
+    <div class="question">
+        <h2>Bla bla bla</h2>
+        <div class="containerq"><input type="radio" name="q11" value="a" data-correct>Yes, and all the options are presented as equals (same colour and same patterns)</div>
+        <div class="containerq"><input type="radio" name="q11" value="b">Yes, but it is nudged to consent to all cookies rather than reject them</div>
+        <div class="containerq"><input type="radio" name="q11" value="c">No</div>
+    </div>
+</form>
+<script>
+    const form = document.getElementById("quiz-questions");
+    form.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    const questions = form.getElementsByClassName("question");
+    let totalCorrect = 0;
+
+    for (let i = 0; i < questions.length; i++) {
+        const question = questions[i];
+        const selectedAnswer = question.querySelector('input[name="q' + (i + 1) + '"]:checked');
+
+        if (selectedAnswer) {
+        const correctAnswer = selectedAnswer.hasAttribute("data-correct");
+        selectedAnswer.parentNode.style.backgroundColor = correctAnswer ? "green" : "red";
+
+        if (correctAnswer) {
+            totalCorrect++;
+        }
+        }
+    }
+
+    console.log("Total correct answers:", totalCorrect);
+    });
+
+    const questionContainer = document.getElementById("quiz-questions");
+
+    questionContainer.addEventListener("click", function(event) {
+    const clickedElement = event.target;
+
+    if (clickedElement.tagName === "INPUT" && clickedElement.type === "radio") {
+        return;
+    }
+
+    const radioButton = clickedElement.querySelector("input[type='radio']");
+
+    if (radioButton) {
+        radioButton.click();
+    }
+    });
+
+</script>  
+</section>
