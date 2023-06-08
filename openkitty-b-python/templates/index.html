@@ -1,0 +1,265 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<body>
+    <div id="particles"></div>
+    <section class="center" id="home">
+    <h1 class="animate__animated animate__zoomInRight">Coffeebreak Crash Course on Website Privacy</h1>
+    <p class="animate__animated animate__zoomInLeft">By OpenKITTY</p>
+    <button onclick="scrollToView(1)" class="animate__animated animate__zoomInUp">Start exploring</button>
+    </section>
+    <div class="nav-bar">
+        <ul>
+            <li onclick="scrollToView(1)">Introduction</li>
+            <li onclick="scrollToView(2)">About Us</li>
+            <li onclick="scrollToView(3)">Data</li>
+            <li onclick="scrollToView(5)">Crash Course</li>
+        </ul>
+    </div>
+    <button onclick="scrollToView(0)" id="Top" title="Go to top">Top</button>
+    <button onclick="window.location.href='https://uva.fra1.qualtrics.com/jfe/form/SV_82guP1wi42tGCLc';" id="Top" title="Go to top">Give feedback!</button>
+    <section id="introduction">
+        <h1>For Whom?</h1>
+        <div id="intro-line"></div>
+        <h3>Management Staff</h3>
+        <p>We have tailored this website to the basic knowledge needs of healthcare providers in regards to Data Privacy. If you are a part of the management staff or a website administrator(but not only), feel free to grab a coffee and let us present you with some quite useful knowledge!</p>
+        <h1>What?</h1>
+        <div id="intro-line"></div>
+        <h3>A Website</h3>
+        <p id="iq">Do you know what to do in case of a data breach of your website?</p>
+        <p id="iq">Do you know what are the GDPR requirements regarding cookies on your website?</p>
+        <p>We prepared a Crash Course of knowledge in the range of Cybersecurity and Data Privacy. On this website you will learn about topics ranging from EU Privacy Laws to what to do in case of a Data Breach. Specially selected materials will briefly describe the issue, while also granting you resources to dive deeper into the topic to make sure your security of users data is of the highest standard.</p>
+        <button onclick="scrollToView(3)">Why does it matter?</button>
+        <button onclick="scrollToView(5)">Take me to the course</button>
+    </section>
+    <section class="center" id="about">
+        <h1>About us</h1>
+        <div id="about-line"></div>
+        <br>
+        <p>The Coffeebreak Crash Course on Website Privacy is the work of three students from Computational Social Science of University of Amsterdam, with the mission to promote a privacy-aware world. We hope to provide easy to understand and practical information on privacy issues related to websites, and we wish this serves as an inspiration to carry more private practices everywhere. <br><br>
+            The project started with a challenge from Sigra, a partnership of healthcare organisations in North Holland, and OpenKat, a vulnerability analysis tool for networks developed under the Dutch Ministry of Health. The goal was to develop a digital intervention to increase privacy practices within the healthcare industry in the region.</p>
+    </section>
+    <section class="center" id="data">
+        <h1>Current State of the Industry</h1>
+        <p>We looked into websites of 50 health providers. Many of them aren't privacy aware. </p>
+    </section>
+    <section class="center" id="graphs">
+        <div class="center" id="g">
+            <div class="center" id="graph-description">
+                <h3>Cookies</h3>
+                <p>Out of these 50 websites, 49% of them did not ask for user's permission for storing cookies.</p>
+            </div>
+            <img src="static/graphs/cookies.svg">
+        </div>
+        <div id="graph-line"></div>
+        <div class="center" id="g">
+            <img src="static/graphs/policy.svg">
+            <div class="center" id="graph-description">
+                <h3>Privacy Policy</h3>
+                <p>30% of the websites did not have an easily accesible privacy policy, some of them did not have one at all.</p>
+            </div>
+        </div>
+        <div id="graph-line"></div>
+        <div class="center" id="g">
+            <div class="center" id="graph-description">
+                <h3>Trackers</h3>
+                <p>Almost all of the websites used third-party applications.</p>
+            </div>
+            <img src="static/graphs/trackers.svg">
+        </div>
+    </section>
+    <section class="center" id="intro-learning">
+        <h1>Crash Course</h1>
+        <h2>Learn the basics in 5 minutes or less while checking your knowledge along the way!</h2>
+        <h3>Green colour marks the answers that fit the regulations or suggestions</h3>
+        <button onclick="scrollToView(6)">Start learning</button>
+    </section>
+    <section class="center" id="learning">
+        <div class="container" id="l">
+            <div class="center" id="module">
+                <div class id="module-text">
+                    <div class="center" id="module-text">
+                        <h3> Learn the basics of GDPR</h3>
+                        <div id="module-line"></div>
+                        <p id="mm"><b>Why it matters</b>: Ignoring GDPR regulation can result to fines of up to million euros, or up to 4% of the organisation’s turnover for the previous financial year, whichever is greater. A lot of privacy requirements are based around GDPR.</p>
+                        <div id="module-line"></div>
+                        <p><b>The background</b>: The General Data Protection Regulation (GDPR) is a privacy and security law in with the purpose of protecting data and privacy within the EU and the EEA. </p>
+                        <ul>
+                            <li>The GDPR’0s main aim is to maximise an individual’s control over their personal and sensible information, while also simplifying the regulatory environment for international business.</li>
+                        </ul>
+                        <p><b>In practice</b>: In the upcoming sections, you will get a quick rundown of some of the basic requirements of GDPR.</p>
+                    </div>
+                    <form id="quiz-questions">
+                        <div class="question">
+                            <h2>There is a limited amount of website administrators</h2>
+                            <div class="containerq"><input type="radio" name="q1" value="a"> Yes, only one</div>
+                            <div class="containerq"><input type="radio" name="q1" value="b" data-correct> Yes, the updating is done by selected individuals</div>
+                            <div class="containerq"><input type="radio" name="q1" value="c"> No, the login information is available for everyone in my organisation</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="l">
+            <div class="center" id="module">
+                <div class="center" id="module-text">
+                <h3>Is your privacy policy sufficient?</h3>
+                <div id="module-line"></div>
+                <p id="mm"><b>Why it matters</b>: A clear privacy policy that is easy to find is a requirement under the GDPR.</p>
+                <div id="module-line"></div>
+                    <p><b>In practice</b>:</p>
+                    <ul>
+                        <li>There are numerous privacy policy templates available online, but many of them fail to meet the GDPR requirements of clear and plain language.</li>
+                        <li>The typical placement of a link to a privacy policy is in the footer at the bottom of the page. By following this convention, your users can find it easily.</li>
+                    </ul>
+                </div>
+                <form class="quiz-questions">
+                    <div class="question">
+                        <h2>Does your website have a privacy policy?</h2>
+                        <div class="containerq"><input type="radio" name="q2" value="a" data-correct> Yes, it is located at the bottom of the page</div>
+                        <div class="containerq"><input type="radio" name="q2" value="b"> Yes, somewhere else</div>
+                        <div class="containerq"><input type="radio" name="q2" value="c"> There is no privacy policy/the link is broken</div>
+                    </div>
+                    <div class="question">
+                        <h2>What style is the privacy policy written?</h2>
+                        <div class="containerq"><input type="radio" name="q3" value="a" data-correct> It is written in simple, understandable language</div>
+                        <div class="containerq"><input type="radio" name="q3" value="b"> It has a lot of specialised terms and takes time to understand</div>
+                        <div class="containerq"><input type="radio" name="q3" value="c"> There is no privacy policy</div>
+                    </div>
+                </form>
+            </div>
+        </div>        
+        <div class="container" id="l">
+            <div class="center" id="module">
+                <div class="center" id="module-text">
+                <h3>Ask consent for cookies</h3>
+                <div id="module-line"></div>
+                <p id="mm"><b>Why it matters</b>:If your website does not ask its user for consent on cookies, it’s most likely not GDPR compliant. By having clear cookie options, you are telling the user that you care about their data privacy. </p>
+                <div id="module-line"></div>
+                <p><b>The background</b>: Cookies are small text files that websites use to track user behaviour and preferences. For example, to prevent the user having to log in on every page, the computer stores a cookie that the user is logged in for easy navigation. Cookies can also be from third parties, like social media plugins or Google’s services. </p>
+                <ul>
+                    <li>Under GDPR, all third-party and most first-party cookies require consent.</li>
+                    <li>It is common to hide the cookie options under settings and nudge the user to allow all cookies with colors and positioning of buttons. These are dark patterns and should be avoided.</li>
+                </ul>
+                <p><b>In practice</b>: When user enters the website, there should be a cookie prompt to ask if the user consents for the use of statistical or advertising cookies. It is a good practice to present cookie options equally, in the same menu and same color. </p>
+                </div>
+                <form class="quiz-questions">
+                    <div class="question">
+                        <h2>Does your website ask the user to consent to cookies?</h2>
+                        <div class="containerq"><input type="radio" name="q4" value="a" data-correct> Yes, the user can select which cookies they allow</div>
+                        <div class="containerq"><input type="radio" name="q4" value="b"> No, but the user is notified that the website uses cookies</div>
+                        <div class="containerq"><input type="radio" name="q4" value="c"> No, there is no cookie banner </div>
+                    </div>
+                    <div class="question">
+                        <h2>How does your website ask the user to consent to cookies?</h2>
+                        <div class="containerq"><input type="radio" name="q5" value="a" data-correct> The options to deny or allow cookies are presented as equals (same colour and same patterns)</div>
+                        <div class="containerq"><input type="radio" name="q5" value="b"> The user is nudged to consent to all cookies rather than reject them</div>
+                        <div class="containerq"><input type="radio" name="q5" value="c"> The user can not disallow cookies</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container" id="l">
+            <div class="center" id="module">
+                <div class="center" id="module-text">
+                <h3>Be careful with forms</h3>
+                <div id="module-line"></div>
+                <p id="mm"><b>Why it matters</b>: Forms are vulnerable to data breaches, cyber-attacks, and unauthorized access by third-party. Some forms also sell data to data brokers.</p>
+                <div id="module-line"></div>
+                <p><b>In practice</b>: Forms should only ask for information that is strictly necessary and avoid sensitive data such as BSNs. Only create a form with a reliable provider.</p>
+                </div>
+                <form class="quiz-questions">
+                    <div class="question">
+                        <h2>Does the website have a form?</h2>
+                        <div class="containerq"><input type="radio" name="q6" value="a" data-correct> Yes, but it doesn't require personal information</div>
+                        <div class="containerq"><input type="radio" name="q6" value="b"> Yes, and it asks for personal information</div>
+                        <div class="containerq"><input type="radio" name="q6" value="c" data-correct> No</div>
+                    </div>
+                    <div class="question">
+                        <h2>Is the data from the form disposed properly?</h2>
+                        <div class="containerq"><input type="radio" name="q7" value="a"> No, it is stored for long amounts of time for future use</div>
+                        <div class="containerq"><input type="radio" name="q7" value="b"data-correct> Yes, it is periodically deleted/anonymised</div>
+                        <div class="containerq"><input type="radio" name="q7" value="c"data-correct> There is no form</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container" id="l">
+            <div class="center" id="module">
+                <div class="center" id="module-text">
+                    <h3>Reconsider using Google Analytics</h3>
+                    <div id="module-line"></div>
+                    <p id="mm"><b>Why it matters</b>: Multiple privacy concerns have been raised regarding performance metrics like Google Analytics. </p>
+                    <div id="module-line"></div>
+                    <p><b>The background</b>: While tools like Google Analytics can help to identify trends, and measure the effectiveness of marketing strategies, they can pose threats to privacy. These analysis services collect sensible information such as geolocation and device information. </p>
+                    <ul>
+                        <li>Third-parties can be intrusive when it comes to personally identifiable information.  The data can end up being used by advertisers, which allows them to use targeted advertising without the user’s knowledge or consent. </li>
+                    </ul>
+                    <p><b>In practice</b>: Avoid using Google Analytics. If you still choose to use it, adjust the settings to be as privacy aware as possible. </p>
+                </div>
+                <form class="quiz-questions">
+                    <div class="question">
+                        <h2>Does the website uses third-party tracker <br> (like Google Analytics and Hotjar)?</h2>
+                        <div class="containerq"><input type="radio" name="q8" value="a"> Yes, with default settings</div>
+                        <div class="containerq"><input type="radio" name="q8" value="b" data-correct> Yes, but the settings are adjusted to pseudonymised (IP addresses hidden)</div>
+                        <div class="containerq"><input type="radio" name="q8" value="c"> No</div>
+                    </div>
+                    <div class="question">
+                        <h2>Does the privacy policy mention the use of a third-party <br> tracker (like Google Analytics and Hotjar)?</h2>
+                        <div class="containerq"><input type="radio" name="q9" value="a"> Yes, the use and purpose is outlined in the privacy policy</div>
+                        <div class="containerq"><input type="radio" name="q9" value="b" data-correct> No, there is no mention</div>
+                        <div class="containerq"><input type="radio" name="q9" value="c"> No, there is no privacy policy</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container" id="l">
+            <div class="center" id="module">
+                <div class="center" id="module-text">
+                    <h3>Avoid using Google Fonts for font-hosting</h3>
+                    <div id="module-line"></div>
+                    <p id="mm"><b>Why it matters</b>: Google Fonts stores personal data, like IP addresses, to display fonts. </p>
+                    <div id="module-line"></div>
+                    <p><b>The background</b>: While websites usually do not ask if the user consents to Google Fonts, they should. IP addresses are personal data and require consent to be collected.  </p>
+                    <ul>
+                        <li>In Germany, court ruled that Google Fonts is not compliant with GDPR.  </li>
+                    </ul>
+                    <p><b>In practice</b>: Consider other alternatives to Google Fonts, like self-hosting fonts. </p>
+                    <form class="quiz-questions">
+                        <div class="question">
+                            <h2>How are the fonts hosted on the website?</h2>
+                            <div class="containerq"><input type="radio" name="q10" value="a"> Through Google Fonts</div>
+                            <div class="containerq"><input type="radio" name="q10" value="b"data-correct> Through a more privacy aware site, like bunny.net</div>
+                            <div class="containerq"><input type="radio" name="q10" value="c"data-correct> The fonts are self-hosted</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="l">
+            <div class="center" id="module">
+                <div class="center" id="module-text">
+                    <h3>Alternative tools</h3>
+                    <div id="module-line"></div>
+                    <p id="mm"><b>Website analytics</b>: Simple Analytics </p>
+                    <div id="module-line"></div>
+                    <p><b>Pros</b>: Doesn’t collect even anonyzmised data from your website visitors. Fast loading time. Based in the Netherlands. Easy installation guide.</p>
+                    <p><b>Cons</b>: Paid. Very simplified.</p>
+                    <div id="module-line"></div>
+                    <p id="mm"><b> Font-hosting</b>: Host font files locally </p>
+                    <div id="module-line"></div>
+                    <p><b>Pros</b>: Privacy-friendly. No reliance on third parties.</p>
+                    <p><b>Cons</b>: Requires some knowledge to set up. Requires testing to see if fonts are visible with all browsers.</p>
+                    <div id="module-line"></div>
+                    <p id="mm"><b>Additional resources</b>: OpenKat - vulnerability analysis tool for complex systems </p>
+                    <div id="module-line"></div>
+                    <p><b>Pros</b>: Open source. Constantly developing new features. Privacy-first approach.</p>
+                    <p><b>Cons</b>: Requires technical knowledge to set up.</p>
+                </div>
+            </div>
+        </div>
+        <button id="submit"><a href="/log_binary">Submit</a></button>
+    </section>
+</body>
+
+{% endblock %}

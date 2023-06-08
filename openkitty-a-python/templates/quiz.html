@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block body %}
+            <section class="center" id="quiz">
+                <form id="quiz-questions">
+                    <div class="question">
+                        <h2>The website asks consent to cookies</h2>
+                        <div class="containerq"><input type="radio" name="q1" value="a" data-correct>Yes, and all the options are presented as equals (same colour and same patterns)</div>
+                        <div class="containerq"><input type="radio" name="q1" value="b">Yes, but it is nudged to consent to all cookies rather than reject them</div>
+                        <div class="containerq"><input type="radio" name="q1" value="c">No</div>
+                    </div>
+                    <div class="question">
+                        <h2>The website uses third-party tracker (like Google Analytics and Hotjar)</h2>
+                        <div class="containerq"><input type="radio" name="q2" value="a">Yes, with default settings</div>
+                        <div class="containerq"><input type="radio" name="q2" value="b" data-correct>Yes, but the settings are adjusted to pseudonymised (IP addresses hidden)</div>
+                        <div class="containerq"><input type="radio" name="q2" value="c">No</div>
+                    </div>
+                    <div class="question">
+                        <h2>The privacy policy is available on the website</h2>
+                        <div class="containerq"><input type="radio" name="q3" value="a" data-correct>Yes, it is located at the bottom of the page</div>
+                        <div class="containerq"><input type="radio" name="q3" value="b">Yes, somewhere else</div>
+                        <div class="containerq"><input type="radio" name="q3" value="c">There is no privacy policy/the link is broken</div>
+                    </div>
+                    <div class="question">
+                        <h2>There is a form on the website</h2>
+                        <div class="containerq"><input type="radio" name="q4" value="a" data-correct2>Yes, but it doesn’t require personal information</div>
+                        <div class="containerq"><input type="radio" name="q4" value="b">Yes, and it asks for personal information</div>
+                        <div class="containerq"><input type="radio" name="q4" value="c" data-correct>No</div>
+                    </div>
+                    <div class="question">
+                        <h2>The data from a form is disposed properly</h2>
+                        <div class="containerq"><input type="radio" name="q5" value="a">No, it is stored for long amounts of time for future use</div>
+                        <div class="containerq"><input type="radio" name="q5" value="b"data-correct2>Yes, it is periodically deleted/anonymised</div>
+                        <div class="containerq"><input type="radio" name="q5" value="c"data-correct>There is no form</div>
+                    </div>
+                </form>
+                <script>
+                    const form = document.getElementById("quiz-questions");
+                    form.addEventListener("click", function(event) {
+                    event.preventDefault();
+
+                    const questions = form.getElementsByClassName("question");
+                    let totalCorrect = 0;
+
+                    for (let i = 0; i < questions.length; i++) {
+                        const question = questions[i];
+                        const selectedAnswer = question.querySelector('input[name="q' + (i + 1) + '"]:checked');
+
+                        if (selectedAnswer) {
+                        const correctAnswer = selectedAnswer.hasAttribute("data-correct");
+                        selectedAnswer.parentNode.style.backgroundColor = correctAnswer ? "green" : "red";
+
+                        if (correctAnswer) {
+                            totalCorrect++;
+                        }
+                        }
+                    }
+
+                    console.log("Total correct answers:", totalCorrect);
+                    });
+
+                    const questionContainer = document.getElementById("quiz-questions");
+
+                    questionContainer.addEventListener("click", function(event) {
+                    const clickedElement = event.target;
+
+                    if (clickedElement.tagName === "INPUT" && clickedElement.type === "radio") {
+                        return;
+                    }
+
+                    const radioButton = clickedElement.querySelector("input[type='radio']");
+
+                    if (radioButton) {
+                        radioButton.click();
+                    }
+                    });
+
+                </script>
+            </section>
+            <button id="submit"><a href="/log_binary">Submit</a></button>
+{% endblock %}
